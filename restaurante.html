@@ -1,57 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-PT" class="scroll-smooth">
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restaurante &amp; Cafetaria · Ninho D'Arara</title>
   
-  <!-- Tipografia do Google Fonts -->
+  <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            arara: {
-              DEFAULT: '#2e693b',
-              dark: '#204928',
-              cream: '#faf8f5',
-              badge: '#f4f8e6',
-              red: '#e13a37',
-              redHover: '#c82e2b',
-            }
-          },
-          fontFamily: {
-            sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
-            heading: ['"Bricolage Grotesque"', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  
+  <!-- Estilos CSS Personalizados (Pontuação extra em CSS) -->
+  <link rel="stylesheet" href="css/estilos.css">
   
   <!-- Scripts -->
   <script src="js/menu.js" defer></script>
 </head>
-<body class="bg-[#faf8f5] text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="antialiased flex flex-col min-h-screen">
 
   <!-- ========================================================= -->
   <!-- CABEÇALHO / HEADER                                        -->
   <!-- ========================================================= -->
-  <header class="bg-[#2e693b] text-white shadow-sm sticky top-0 z-50">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-y-3">
+  <header class="cabecalho-ninho text-white sticky top-0 z-50">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex flex-wrap items-center justify-between gap-y-3">
       
       <!-- Logótipo e Subtítulo -->
       <div class="flex items-center gap-3">
-        <a href="index.html" class="inline-block bg-[#f4f8e6] text-[#204928] font-heading font-extrabold px-4 py-1.5 rounded-xl text-base sm:text-lg tracking-wider border border-white/60 shadow-sm hover:scale-[1.02] transition-transform">
+        <a href="index.html" class="logo-badge inline-block px-4 py-1.5 rounded-xl text-base sm:text-lg border border-white/60">
           NINHO D'ARARA
         </a>
-        <span class="text-xs sm:text-sm text-emerald-100/90 font-medium tracking-wide">
+        <span class="text-xs sm:text-sm text-emerald-100 font-medium">
           Alojamento Local &amp; Cafetaria
         </span>
       </div>
@@ -62,38 +43,22 @@
         id="menu-botao"
         aria-expanded="false"
         aria-controls="menu-principal"
-        class="md:hidden inline-flex items-center gap-1.5 rounded-lg border border-emerald-400/40 px-3 py-1.5 text-xs uppercase font-semibold text-white hover:bg-emerald-800/80 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+        class="md:hidden inline-flex items-center gap-1.5 rounded-lg border border-emerald-400/40 px-3 py-1.5 text-xs uppercase font-semibold text-white hover:bg-emerald-800"
       >
         <span id="menu-icone" aria-hidden="true" class="text-base font-bold">☰</span>
         <span>Menu</span>
       </button>
 
       <!-- Navegação Principal -->
-      <nav id="menu-principal" aria-label="Navegação Principal" class="hidden md:block w-full md:w-auto">
-        <ul class="flex flex-col md:flex-row md:items-center gap-1 sm:gap-2 text-sm pt-3 md:pt-0 border-t border-emerald-700/60 md:border-none font-medium">
-          <li>
-            <a href="index.html" class="block px-3 py-1 rounded-md text-emerald-100 hover:text-white hover:bg-emerald-800/40 transition-colors">
-              Início
-            </a>
-          </li>
-          <li class="hidden md:inline text-emerald-300/40 select-none">|</li>
-          <li>
-            <a href="alojamento.html" class="block px-3 py-1 rounded-md text-emerald-100 hover:text-white hover:bg-emerald-800/40 transition-colors">
-              Alojamento
-            </a>
-          </li>
-          <li class="hidden md:inline text-emerald-300/40 select-none">|</li>
-          <li>
-            <a href="restaurante.html" class="block px-3 py-1 rounded-md text-white font-bold bg-emerald-800/60 md:bg-transparent md:border-b-2 md:border-white">
-              Restaurante
-            </a>
-          </li>
-          <li class="hidden md:inline text-emerald-300/40 select-none">|</li>
-          <li>
-            <a href="contactos.html" class="block px-3 py-1 rounded-md text-emerald-100 hover:text-white hover:bg-emerald-800/40 transition-colors">
-              Contactos
-            </a>
-          </li>
+      <nav id="menu-principal" aria-label="Principal" class="hidden md:block w-full md:w-auto">
+        <ul class="flex flex-col md:flex-row md:items-center gap-1 sm:gap-2 text-sm pt-3 md:pt-0 border-t border-emerald-700/60 md:border-none">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="alojamento.html" class="nav-link">Alojamento</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="restaurante.html" class="nav-link ativo">Restaurante</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="reserva.html" class="nav-link">Reservas</a></li>
         </ul>
       </nav>
 
@@ -103,205 +68,106 @@
   <!-- ========================================================= -->
   <!-- HERO BANNER DA CAFETARIA                                  -->
   <!-- ========================================================= -->
-  <section class="bg-[#d8ebd0] border-b-2 border-dashed border-[#b3d4ab] py-10 sm:py-12 px-4 sm:px-6">
-    <div class="mx-auto max-w-4xl text-center">
-      <span class="text-[#204928] text-xs sm:text-sm font-bold tracking-[0.2em] uppercase">
-        SABORES AUTÊNTICOS &bull; PRODUTOS DA TERRA
+  <section class="hero-ninho py-8 px-4 text-center">
+    <div class="mx-auto max-w-3xl">
+      <span class="text-xs font-bold tracking-widest text-[#204928] uppercase">
+        SABORES LOCAIS &bull; CAFÉ AROMÁTICO
       </span>
-      <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#204928] mt-2 mb-3">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-[#204928] mt-1 mb-2">
         Cafetaria &amp; Restaurante
       </h1>
-      <p class="text-slate-700 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-        Uma experiência gastronómica rústica e acolhedora, aberta a hóspedes e visitantes. Trabalhamos exclusivamente com produtores locais e ingredientes da época.
+      <p class="text-sm text-slate-700">
+        Sabores caseiros e ingredientes frescos da região para saborear sem pressa.
       </p>
     </div>
   </section>
 
   <!-- ========================================================= -->
-  <!-- CONTEÚDO DA EMENTA                                        -->
+  <!-- CONTEÚDO DA EMENTA SIMPLES                                -->
   <!-- ========================================================= -->
-  <main class="flex-1 mx-auto max-w-5xl w-full px-4 sm:px-6 py-10 sm:py-14">
-    
-    <!-- Destaque Fotográfico -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 items-center bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-sm">
-      <div class="rounded-2xl overflow-hidden h-64 sm:h-72">
-        <img
-          src="imagens/cafetaria.jpg"
-          alt="Mesa de pequeno-almoço com panquecas caseiras e café aromático"
-          class="w-full h-full object-cover"
-        >
+  <main class="flex-1 mx-auto max-w-4xl w-full px-4 py-10">
+
+    <!-- Card de Apresentação com Foto das Panquecas -->
+    <div class="card-destaque p-6 mb-8 flex flex-col md:flex-row gap-6 items-center">
+      <div class="w-full md:w-64 h-48 rounded-xl overflow-hidden flex-shrink-0">
+        <img src="imagens/cafetaria.jpg" alt="Cafetaria e Panquecas do Ninho D'Arara" class="w-full h-full object-cover">
       </div>
-      <div class="flex flex-col justify-center">
-        <span class="text-xs uppercase font-bold tracking-widest text-emerald-700">Conceito Slow Food</span>
-        <h2 class="font-heading text-2xl font-bold text-[#204928] mt-1 mb-3">
-          O Nosso Pequeno-Almoço &amp; Brunch de Montanha
-        </h2>
-        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-          Servido diariamente das 08:00 às 12:30. Pão fresco de fermentação lenta cozido a lenha na freguesia, queijos da serra amanteigados, compotas caseiras e café biológico de torra fresca.
-        </p>
-        <div class="flex items-center gap-3">
-          <a
-            href="contactos.html?quarto=cafetaria"
-            class="inline-flex items-center bg-[#e13a37] hover:bg-[#c82e2b] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl shadow-sm transition"
-          >
-            Reservar Mesa
-          </a>
-          <span class="text-xs text-slate-500">Horário: 08:00 — 20:00</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Secções da Ementa -->
-    <div class="flex flex-col gap-10">
-
-      <!-- Secção 1: Pequeno-Almoço & Brunch -->
-      <section>
-        <div class="border-b-2 border-emerald-800/20 pb-3 mb-6 flex justify-between items-end">
-          <div>
-            <h2 class="font-heading text-2xl font-bold text-[#204928]">Pequeno-Almoço &amp; Brunch</h2>
-            <p class="text-xs text-slate-500">Disponível toda a manhã</p>
-          </div>
-          <span class="text-xs text-emerald-800 font-semibold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-            Fresco todos os dias
-          </span>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex justify-between gap-4">
-            <div>
-              <h3 class="font-bold text-slate-900 text-sm sm:text-base">Panquecas Ninho com Frutos Silvestres</h3>
-              <p class="text-xs text-slate-500 mt-1">Feitas na hora com aveia biológica, mel da serra e mirtilos frescos.</p>
-              <span class="inline-block mt-2 text-[10px] bg-amber-50 text-amber-800 px-2 py-0.5 rounded font-medium">Vegetariano</span>
-            </div>
-            <span class="font-extrabold text-[#204928] text-base sm:text-lg whitespace-nowrap">6,50€</span>
-          </div>
-
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex justify-between gap-4">
-            <div>
-              <h3 class="font-bold text-slate-900 text-sm sm:text-base">Tosta Rústica de Abacate &amp; Ovo Escalfado</h3>
-              <p class="text-xs text-slate-500 mt-1">Pão alentejano tostado com sementes tostadas e azeite virgem extra.</p>
-              <span class="inline-block mt-2 text-[10px] bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded font-medium">Bio</span>
-            </div>
-            <span class="font-extrabold text-[#204928] text-base sm:text-lg whitespace-nowrap">7,00€</span>
-          </div>
-
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex justify-between gap-4">
-            <div>
-              <h3 class="font-bold text-slate-900 text-sm sm:text-base">Iogurte Cremoso com Granola Caseira</h3>
-              <p class="text-xs text-slate-500 mt-1">Iogurte grego artesanal, frutos secos caramelizados e polpa de framboesa.</p>
-              <span class="inline-block mt-2 text-[10px] bg-amber-50 text-amber-800 px-2 py-0.5 rounded font-medium">Vegetariano</span>
-            </div>
-            <span class="font-extrabold text-[#204928] text-base sm:text-lg whitespace-nowrap">4,50€</span>
-          </div>
-
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex justify-between gap-4">
-            <div>
-              <h3 class="font-bold text-slate-900 text-sm sm:text-base">Cesto de Pães Tradicionais &amp; Queijo Fresco</h3>
-              <p class="text-xs text-slate-500 mt-1">Seleção de broa de milho e pão de trigo com requeijão e doce de abóbora.</p>
-              <span class="inline-block mt-2 text-[10px] bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded font-medium">Regional</span>
-            </div>
-            <span class="font-extrabold text-[#204928] text-base sm:text-lg whitespace-nowrap">5,00€</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Secção 2: Almoços Ligeiros & Petiscos da Tarde -->
-      <section>
-        <div class="border-b-2 border-emerald-800/20 pb-3 mb-6 flex justify-between items-end">
-          <div>
-            <h2 class="font-heading text-2xl font-bold text-[#204928]">Almoços Ligeiros &amp; Petiscos</h2>
-            <p class="text-xs text-slate-500">Servido a partir das 12:30</p>
-          </div>
-          <span class="text-xs text-emerald-800 font-semibold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-            Produtos da Aldeia
-          </span>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex justify-between gap-4">
-            <div>
-              <h3 class="font-bold text-slate-900 text-sm sm:text-base">Tábua Ninho D'Arara</h3>
-              <p class="text-xs text-slate-500 mt-1">Queijo curado de cabra e ovelha, presunto de cura tradicional, nozes e tostas.</p>
-              <span class="inline-block mt-2 text-[10px] bg-red-50 text-red-800 px-2 py-0.5 rounded font-medium">Recomendado</span>
-            </div>
-            <span class="font-extrabold text-[#204928] text-base sm:text-lg whitespace-nowrap">14,00€</span>
-          </div>
-
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex justify-between gap-4">
-            <div>
-              <h3 class="font-bold text-slate-900 text-sm sm:text-base">Sandes em Bolo do Caco com Presunto e Rúcula</h3>
-              <p class="text-xs text-slate-500 mt-1">Manteiga de alho e ervas caseira, presunto serrano e tomate coração de boi.</p>
-            </div>
-            <span class="font-extrabold text-[#204928] text-base sm:text-lg whitespace-nowrap">6,80€</span>
-          </div>
-
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex justify-between gap-4">
-            <div>
-              <h3 class="font-bold text-slate-900 text-sm sm:text-base">Salada da Horta com Queijo Chévre Gratinado</h3>
-              <p class="text-xs text-slate-500 mt-1">Folhas verdes frescas, vinagre balsâmico de frutos vermelhos e nozes.</p>
-              <span class="inline-block mt-2 text-[10px] bg-amber-50 text-amber-800 px-2 py-0.5 rounded font-medium">Vegetariano</span>
-            </div>
-            <span class="font-extrabold text-[#204928] text-base sm:text-lg whitespace-nowrap">9,50€</span>
-          </div>
-
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex justify-between gap-4">
-            <div>
-              <h3 class="font-bold text-slate-900 text-sm sm:text-base">Sopa Aveludada de Legumes da Horta</h3>
-              <p class="text-xs text-slate-500 mt-1">Preparada diariamente com abóbora, cenoura, curgete e fio de azeite virgem.</p>
-              <span class="inline-block mt-2 text-[10px] bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded font-medium">Vegan</span>
-            </div>
-            <span class="font-extrabold text-[#204928] text-base sm:text-lg whitespace-nowrap">3,80€</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Secção 3: Cafetaria, Chás & Vinhos Locais -->
-      <section>
-        <div class="border-b-2 border-emerald-800/20 pb-3 mb-6">
-          <h2 class="font-heading text-2xl font-bold text-[#204928]">Cafetaria de Especialidade &amp; Bebidas</h2>
-          <p class="text-xs text-slate-500">Torras selecionadas e vinhos da região</p>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
-            <h3 class="font-bold text-slate-900 text-xs sm:text-sm">Espresso de Origem</h3>
-            <p class="text-[11px] text-slate-500 mt-1">100% Arábica</p>
-            <p class="font-extrabold text-[#204928] text-sm mt-2">1,50€</p>
-          </div>
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
-            <h3 class="font-bold text-slate-900 text-xs sm:text-sm">Cappuccino Canela</h3>
-            <p class="text-[11px] text-slate-500 mt-1">Leite fresco ou aveia</p>
-            <p class="font-extrabold text-[#204928] text-sm mt-2">2,50€</p>
-          </div>
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
-            <h3 class="font-bold text-slate-900 text-xs sm:text-sm">Chá Biológico da Serra</h3>
-            <p class="text-[11px] text-slate-500 mt-1">Erva-príncipe ou camomila</p>
-            <p class="font-extrabold text-[#204928] text-sm mt-2">2,20€</p>
-          </div>
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
-            <h3 class="font-bold text-slate-900 text-xs sm:text-sm">Copo de Vinho Regional</h3>
-            <p class="text-[11px] text-slate-500 mt-1">Tinto, Branco ou Rosé</p>
-            <p class="font-extrabold text-[#204928] text-sm mt-2">3,50€</p>
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- Banner Cesto de Piquenique para Trilhos -->
-    <div class="mt-14 bg-gradient-to-r from-[#d8ebd0] to-emerald-100/70 p-6 sm:p-8 rounded-3xl border border-emerald-300/80 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div>
-        <h3 class="font-heading text-xl font-bold text-[#204928]">Vai caminhar pelos trilhos?</h3>
-        <p class="text-xs sm:text-sm text-slate-700 mt-1 max-w-lg">
-          Peça o nosso <strong>Cesto de Piquenique Ninho</strong> com sandes rústicas, frutas da época, frutos secos e sumo natural para desfrutar à beira do rio.
+        <h2 class="text-xl font-bold text-[#204928]">O Nosso Conceito</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+          Pão fresco cozido em forno de lenha, compotas de frutos da época, queijos artesanais da serra e café de torra biológica. Aberto aos nossos hóspedes e a visitantes da região.
         </p>
+        <div class="mt-4">
+          <a href="reserva.html?quarto=cafetaria" class="btn-vermelho text-xs py-2 px-5">
+            Reservar Mesa na Cafetaria
+          </a>
+        </div>
       </div>
-      <a
-        href="contactos.html?quarto=cafetaria"
-        class="bg-[#2e693b] hover:bg-[#204928] text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-sm transition whitespace-nowrap"
-      >
-        Pedir Informações
-      </a>
+    </div>
+
+    <!-- Ementa Dividida por Categorias -->
+    <div class="flex flex-col gap-8">
+
+      <!-- Categoria 1: Pequeno-Almoço & Brunch -->
+      <section>
+        <h3 class="text-lg font-bold text-[#204928] border-b border-emerald-800/20 pb-2 mb-4">
+          Pequeno-Almoço &amp; Cafetaria
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex justify-between">
+            <div>
+              <p class="font-bold text-slate-800">Panquecas com Mel e Frutos da Época</p>
+              <p class="text-xs text-slate-500">Com aveia biológica e fruta fresca</p>
+            </div>
+            <span class="font-extrabold text-[#204928] ml-2">6,50€</span>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex justify-between">
+            <div>
+              <p class="font-bold text-slate-800">Tosta Rústica de Queijo e Presunto</p>
+              <p class="text-xs text-slate-500">Pão alentejano com queijo da serra</p>
+            </div>
+            <span class="font-extrabold text-[#204928] ml-2">5,50€</span>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex justify-between">
+            <div>
+              <p class="font-bold text-slate-800">Iogurte Grego com Granola Caseira</p>
+              <p class="text-xs text-slate-500">Com nozes e doce de abóbora</p>
+            </div>
+            <span class="font-extrabold text-[#204928] ml-2">4,50€</span>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex justify-between">
+            <div>
+              <p class="font-bold text-slate-800">Café de Especialidade &bull; Espresso</p>
+              <p class="text-xs text-slate-500">Torra selecionada 100% Arábica</p>
+            </div>
+            <span class="font-extrabold text-[#204928] ml-2">1,50€</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categoria 2: Refeições Ligeiras & Petiscos -->
+      <section>
+        <h3 class="text-lg font-bold text-[#204928] border-b border-emerald-800/20 pb-2 mb-4">
+          Petiscos &amp; Almoços Ligeiros
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex justify-between">
+            <div>
+              <p class="font-bold text-slate-800">Tábua Regional de Queijos e Enchidos</p>
+              <p class="text-xs text-slate-500">Queijos de cabra e ovelha com tostas</p>
+            </div>
+            <span class="font-extrabold text-[#204928] ml-2">14,00€</span>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex justify-between">
+            <div>
+              <p class="font-bold text-slate-800">Sopa de Legumes da Horta</p>
+              <p class="text-xs text-slate-500">Com legumes biológicos do dia</p>
+            </div>
+            <span class="font-extrabold text-[#204928] ml-2">3,80€</span>
+          </div>
+        </div>
+      </section>
+
     </div>
 
   </main>
@@ -309,59 +175,53 @@
   <!-- ========================================================= -->
   <!-- RODAPÉ / FOOTER                                           -->
   <!-- ========================================================= -->
-  <footer class="bg-[#2e693b] text-white mt-auto border-t border-emerald-800">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+  <footer class="rodape-ninho mt-auto">
+    <div class="mx-auto max-w-6xl px-4 py-8">
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-xs sm:text-sm">
         
         <!-- Coluna 1: Morada -->
         <div>
-          <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2">MORADA</h4>
+          <h4 class="rodape-titulo">MORADA</h4>
           <p class="text-emerald-100/90 leading-relaxed">
             Rua da Natureza, 123<br>
-            Freguesia Verde<br>
-            <span class="text-emerald-300/80 text-xs">0000-000 Arara, Portugal</span>
+            0000-000 Arara
           </p>
         </div>
 
         <!-- Coluna 2: Contactos -->
         <div>
-          <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2">CONTACTOS</h4>
+          <h4 class="rodape-titulo">CONTACTOS</h4>
           <p class="text-emerald-100/90 leading-relaxed">
-            <span class="text-emerald-300 font-medium">Telefone:</span> +351 210 000 000<br>
-            <span class="text-emerald-300 font-medium">Email:</span> reservas@ninhodarara.pt<br>
-            <span class="text-emerald-300 font-medium">Cafetaria:</span> cafetaria@ninhodarara.pt
+            +351 000 000 000<br>
+            ola@ninhodarara.pt
           </p>
         </div>
 
         <!-- Coluna 3: Horário -->
         <div>
-          <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2">HORÁRIO</h4>
+          <h4 class="rodape-titulo">HORÁRIO</h4>
           <p class="text-emerald-100/90 leading-relaxed">
-            <span class="text-emerald-300 font-medium">Cafetaria:</span> 08:00 — 20:00<br>
-            <span class="text-emerald-300 font-medium">Receção:</span> 08:00 — 22:00<br>
-            <span class="text-emerald-300 font-medium">Todos os dias</span>
+            Cafetaria: 08:00 — 20:00<br>
+            Reservas: todos os dias
           </p>
         </div>
 
-        <!-- Coluna 4: Redes Sociais & Acesso Reservado -->
+        <!-- Coluna 4: Redes Sociais e Acesso Reservado -->
         <div class="flex flex-col justify-between sm:items-end">
           <div>
-            <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2 sm:text-right">REDES SOCIAIS</h4>
-            <div class="flex gap-3 text-emerald-100 text-xs sm:text-sm sm:justify-end">
-              <a href="#" class="hover:text-emerald-300 transition-colors">Instagram</a>
-              <span class="text-emerald-400/40">&bull;</span>
-              <a href="#" class="hover:text-emerald-300 transition-colors">Facebook</a>
-              <span class="text-emerald-400/40">&bull;</span>
-              <a href="#" class="hover:text-emerald-300 transition-colors">Tripadvisor</a>
+            <h4 class="rodape-titulo sm:text-right">REDES SOCIAIS</h4>
+            <div class="flex gap-2 text-emerald-100 text-xs sm:justify-end">
+              <a href="#" class="hover:text-emerald-300">Instagram</a>
+              <span>&bull;</span>
+              <a href="#" class="hover:text-emerald-300">Facebook</a>
+              <span>&bull;</span>
+              <a href="#" class="hover:text-emerald-300">Tripadvisor</a>
             </div>
           </div>
 
-          <div class="mt-6 sm:mt-0">
-            <a
-              href="entrar.html"
-              class="italic text-emerald-200/90 hover:text-white underline text-xs transition-colors"
-            >
+          <div class="mt-4 sm:mt-0">
+            <a href="entrar.html" class="rodape-link-reservado">
               Acesso Reservado
             </a>
           </div>
@@ -370,9 +230,9 @@
       </div>
 
       <!-- Copyright Rodapé -->
-      <div class="mt-8 pt-6 border-t border-emerald-700/60 flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-emerald-200/70">
-        <p>&copy; 2026/2027 Ninho D'Arara. Projeto de Aplicações Web &bull; Licenciatura em Informática de Gestão &bull; ISCAC.</p>
-        <p>Desenvolvido com HTML5 semântico, JavaScript e Tailwind CSS.</p>
+      <div class="mt-8 pt-4 border-t border-emerald-800 flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-emerald-200/70">
+        <p>&copy; 2026/2027 Ninho D'Arara &bull; Aplicações Web &bull; ISCAC.</p>
+        <p>Desenvolvido com HTML5, CSS e Tailwind CSS.</p>
       </div>
 
     </div>

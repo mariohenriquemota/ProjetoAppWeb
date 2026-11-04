@@ -9,7 +9,9 @@
 
 ## 📖 1. Sobre o Projeto
 
-O **Ninho D'Arara** é uma plataforma web desenvolvida para um espaço de turismo rural e cafetaria biológica situado num ambiente de natureza panorâmica (árvores, montanhas, rio e aves). O website permite aos utilizadores explorar o conceito do alojamento, consultar as diferentes tipologias de quartos com as respetivas comodidades e preçário, consultar a ementa da cafetaria/restaurante de produtos locais e efetuar pedidos de reserva interativos com cálculo dinâmico do valor total da estadia.
+O **Ninho D'Arara** é um website simples e intuitivo desenvolvido para um espaço de alojamento local rural e cafetaria envolto em natureza panorâmica (*árvores • montanhas • rio • aves*).
+
+O projeto foi construído respeitando as instruções das aulas práticas de Aplicações Web, combinando **HTML5 semântico**, **regras de estilo personalizadas em CSS (`css/estilos.css`)** e a biblioteca utilitária **Tailwind CSS**.
 
 ---
 
@@ -27,62 +29,54 @@ O **Ninho D'Arara** é uma plataforma web desenvolvida para um espaço de turism
 ## 🚀 3. Estrutura de Páginas do Website
 
 1. **Página Inicial (`index.html`)**:
-   - Cabeçalho institucional com logótipo em badge (*NINHO D'ARARA*) e menu de navegação responsivo.
-   - Secção Hero em tons suaves de verde sálvia com slogan de boas-vindas e botão de ação direta (*CTA "Fazer Reserva"*).
-   - Secção fotográfica panorâmica ilustrando a envolvente natural.
-   - Três cartões de destaque com ícones temáticos e botões de navegação:
+   - Cabeçalho com badge do logótipo (*NINHO D'ARARA*) e menu de navegação responsivo (`Início | Alojamento | Restaurante | Reservas`).
+   - Secção Hero com fundo verde suave (`#d8ebd0`), contorno inferior tracejado e botão de ação direta (*"Fazer Reserva"*).
+   - Banner fotográfico da paisagem panorâmica.
+   - Três cartões de destaque simples:
      - **1. Alojamento** (botão *Ver quartos*);
      - **2. Cafetaria** (botão *Ver ementa*);
      - **3. Natureza Envolvente** (botão *Explorar*).
-   - Rodapé completo com Morada, Contactos, Horários de funcionamento, Redes Sociais e atalho para o Acesso Reservado.
+   - Rodapé com Morada, Contactos, Horário, Redes Sociais e atalho para o Acesso Reservado.
 
 2. **Catálogo de Quartos (`alojamento.html`)**:
-   - Apresentação dos diferentes tipos de estadia com fotografia, comodidades e preços:
+   - Título *"Os Nossos Quartos"* e subtítulo *"Escolha o seu alojamento"*.
+   - Três cartões horizontais com espaço para foto, comodidades e preços:
      - **Quarto Duplo Rústico** (Desde 85€ / noite);
      - **Suite Jardim** (Desde 110€ / noite);
      - **Quarto Familiar Arara** (Desde 135€ / noite).
-   - Filtro interativo por capacidade (Casal, Suite, Familiar).
-   - Botões de reserva rápida que encaminham para o formulário com o respetivo quarto pré-selecionado.
+   - Cada quarto tem um botão *"Reservar Quarto"* que abre a página de reserva com o respetivo quarto pré-selecionado.
 
 3. **Cafetaria & Restaurante (`restaurante.html`)**:
-   - Apresentação do conceito gastronómico sustentável (*Slow Food* e produtos biológicos da região).
-   - Ementa detalhada dividida em secções: Pequeno-Almoço & Brunch, Almoços Ligeiros & Tapas da Aldeia, Cafetaria de Especialidade & Vinhos.
-   - Indicação de alergénios e dietas especiais (Vegetariano, Sem Glúten, Bio).
-   - Opção de reserva de mesa e informação sobre o cesto de piquenique para trilhos pedestres.
+   - Apresentação do conceito da cafetaria com produtos regionais.
+   - Ementa simples dividida em: Pequeno-Almoço & Cafetaria e Petiscos & Almoços Ligeiros.
+   - Botão para reserva de mesa na cafetaria.
 
-4. **Contactos & Formulário de Reserva (`contactos.html`)**:
-   - Formulário semântico com validação em JavaScript (`novalidate`, feedback visual em caso de erro/sucesso).
-   - Cálculo automático do número de noites e estimativa do preço total da estadia em tempo real.
-   - Informações completas de localização, horários e mapa de orientação.
+4. **Página de Reservas (`reserva.html`)**:
+   - Formulário semântico com validação em tempo real e avisos de erro por campo:
+     - **Nome Completo:** validação de preenchimento e tamanho mínimo;
+     - **Email:** validação de formato (`type="email"`);
+     - **Telefone:** validação de formato de 9 dígitos nacionais (`pattern="(9[1236][0-9]{7}|2[0-9]{8})"`);
+     - **Alojamento Pretendido:** seleção obrigatória;
+     - **Datas de Check-in e Check-out:** validação de datas coerentes (check-out posterior ao check-in);
+     - **Cálculo dinâmico do orçamento:** calcula automaticamente as noites e o preço total da estadia.
 
 5. **Acesso Reservado (`entrar.html`)**:
-   - Ecrã de autenticação destinado aos administradores e colaboradores para gestão futura do alojamento (preparado para integração com PHP e base de dados MySQL).
+   - Interface simples de autenticação para a futura gestão interna em PHP/MySQL.
 
 ---
 
-## 🛠️ 4. Tecnologias Utilizadas
+## 🎨 4. CSS Personalizado & Tailwind
 
-- **HTML5 Semântico:** Utilização cuidada de tags semânticas (`<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<fieldset>`, `<legend>`, `<footer>`).
-- **Tailwind CSS 3.4 (via CDN):** Estilização moderna e utilitária, garantindo consistência visual e facilidade de manutenção sem necessidade de ferramentas de compilação complexas.
-- **JavaScript Moderno (ES6+):**
-  - Manipulação da DOM para controlo do menu de navegação responsivo em dispositivos móveis (`js/menu.js`).
-  - Lógica de reservas, leitura de parâmetros de URL (`URLSearchParams`), validação de datas e cálculo de orçamentos em tempo real (`js/reservas.js`).
-- **Design Responsivo (Mobile-First):** Testado e otimizado para smartphones, tablets e computadores portáteis/desktop.
+Para além do Tailwind CSS, foi criado um ficheiro específico de estilos [**`css/estilos.css`**](css/estilos.css) com:
+- Variáveis CSS globais (`:root`) com a paleta oficial do projeto (`--cor-verde`, `--cor-vermelho`, `--cor-creme`, etc.);
+- Efeitos de hover e transições suaves nos botões e cartões (`transform: translateY(-4px)`);
+- Estilização e validação nativa de formulários através do pseudo-seletor `:user-invalid` e `:user-valid`;
+- Mensagens de erro automáticas sob os campos (`.msg-erro`).
 
 ---
 
-## 💻 5. Como Abrir e Testar o Projeto no Visual Studio Code
+## 💻 5. Como Abrir no VS Code com Live Server
 
 1. Abra a pasta do projeto no **Visual Studio Code**.
-2. Certifique-se de que tem a extensão **Live Server** instalada no VS Code (da autoria de *Ritwick Dey*).
-3. Clique com o botão direito do rato no ficheiro `index.html` e selecione **"Open with Live Server"** (ou prima `Alt + L, Alt + O`).
-4. O navegador abrirá automaticamente o website no endereço `http://127.0.0.1:5500/index.html`.
-5. Em alternativa, pode abrir diretamente o ficheiro `index.html` em qualquer navegador web moderno (Google Chrome, Mozilla Firefox, Microsoft Edge, Safari).
-
----
-
-## 📅 6. Estado do Desenvolvimento & Próximos Passos
-
-- [x] **Entrega 2:** Identificação do projeto, wireframes, estrutura inicial do website com Tailwind CSS, catálogo de quartos, ementa da cafetaria e validação de formulário no cliente.
-- [ ] **Entrega 3:** Criação do modelo de dados relacional (MySQL) e integração de scripts PHP para persistência dos dados de reservas e relatos.
-- [ ] **Entrega 4:** Autenticação com sessões PHP, controlo de acessos e painel de administração (CRUD de quartos, preços e ementa).
+2. Clique com o botão direito do rato no ficheiro `index.html` e selecione **"Open with Live Server"**.
+3. O website abrirá no navegador em `http://127.0.0.1:5500/index.html`.

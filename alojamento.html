@@ -1,59 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-PT" class="scroll-smooth">
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alojamento · Os Nossos Quartos · Ninho D'Arara</title>
+  <title>Alojamento · Ninho D'Arara</title>
   
-  <!-- Tipografia do Google Fonts -->
+  <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            arara: {
-              DEFAULT: '#2e693b',
-              dark: '#204928',
-              cream: '#faf8f5',
-              badge: '#f4f8e6',
-              placeholder: '#e7e4d5',
-              red: '#e13a37',
-              redHover: '#c82e2b',
-            }
-          },
-          fontFamily: {
-            sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
-            heading: ['"Bricolage Grotesque"', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  
+  <!-- Estilos CSS Personalizados (Pontuação extra em CSS) -->
+  <link rel="stylesheet" href="css/estilos.css">
   
   <!-- Scripts -->
   <script src="js/menu.js" defer></script>
-  <script src="js/reservas.js" defer></script>
 </head>
-<body class="bg-[#faf8f5] text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="antialiased flex flex-col min-h-screen">
 
   <!-- ========================================================= -->
   <!-- CABEÇALHO / HEADER (Foto 3)                               -->
   <!-- ========================================================= -->
-  <header class="bg-[#2e693b] text-white shadow-sm sticky top-0 z-50">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-y-3">
+  <header class="cabecalho-ninho text-white sticky top-0 z-50">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex flex-wrap items-center justify-between gap-y-3">
       
       <!-- Logótipo e Subtítulo -->
       <div class="flex items-center gap-3">
-        <a href="index.html" class="inline-block bg-[#f4f8e6] text-[#204928] font-heading font-extrabold px-4 py-1.5 rounded-xl text-base sm:text-lg tracking-wider border border-white/60 shadow-sm hover:scale-[1.02] transition-transform">
+        <a href="index.html" class="logo-badge inline-block px-4 py-1.5 rounded-xl text-base sm:text-lg border border-white/60">
           NINHO D'ARARA
         </a>
-        <span class="text-xs sm:text-sm text-emerald-100/90 font-medium tracking-wide">
+        <span class="text-xs sm:text-sm text-emerald-100 font-medium">
           Alojamento Local &amp; Cafetaria
         </span>
       </div>
@@ -64,38 +43,22 @@
         id="menu-botao"
         aria-expanded="false"
         aria-controls="menu-principal"
-        class="md:hidden inline-flex items-center gap-1.5 rounded-lg border border-emerald-400/40 px-3 py-1.5 text-xs uppercase font-semibold text-white hover:bg-emerald-800/80 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+        class="md:hidden inline-flex items-center gap-1.5 rounded-lg border border-emerald-400/40 px-3 py-1.5 text-xs uppercase font-semibold text-white hover:bg-emerald-800"
       >
         <span id="menu-icone" aria-hidden="true" class="text-base font-bold">☰</span>
         <span>Menu</span>
       </button>
 
       <!-- Navegação Principal -->
-      <nav id="menu-principal" aria-label="Navegação Principal" class="hidden md:block w-full md:w-auto">
-        <ul class="flex flex-col md:flex-row md:items-center gap-1 sm:gap-2 text-sm pt-3 md:pt-0 border-t border-emerald-700/60 md:border-none font-medium">
-          <li>
-            <a href="index.html" class="block px-3 py-1 rounded-md text-emerald-100 hover:text-white hover:bg-emerald-800/40 transition-colors">
-              Início
-            </a>
-          </li>
-          <li class="hidden md:inline text-emerald-300/40 select-none">|</li>
-          <li>
-            <a href="alojamento.html" class="block px-3 py-1 rounded-md text-white font-bold bg-emerald-800/60 md:bg-transparent md:border-b-2 md:border-white">
-              Alojamento
-            </a>
-          </li>
-          <li class="hidden md:inline text-emerald-300/40 select-none">|</li>
-          <li>
-            <a href="restaurante.html" class="block px-3 py-1 rounded-md text-emerald-100 hover:text-white hover:bg-emerald-800/40 transition-colors">
-              Restaurante
-            </a>
-          </li>
-          <li class="hidden md:inline text-emerald-300/40 select-none">|</li>
-          <li>
-            <a href="contactos.html" class="block px-3 py-1 rounded-md text-emerald-100 hover:text-white hover:bg-emerald-800/40 transition-colors">
-              Contactos
-            </a>
-          </li>
+      <nav id="menu-principal" aria-label="Principal" class="hidden md:block w-full md:w-auto">
+        <ul class="flex flex-col md:flex-row md:items-center gap-1 sm:gap-2 text-sm pt-3 md:pt-0 border-t border-emerald-700/60 md:border-none">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="alojamento.html" class="nav-link ativo">Alojamento</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="restaurante.html" class="nav-link">Restaurante</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="reserva.html" class="nav-link">Reservas</a></li>
         </ul>
       </nav>
 
@@ -105,80 +68,52 @@
   <!-- ========================================================= -->
   <!-- CONTEÚDO PRINCIPAL (Fiel à Foto 3)                        -->
   <!-- ========================================================= -->
-  <main class="flex-1 mx-auto max-w-5xl w-full px-4 sm:px-6 py-10 sm:py-14">
+  <main class="flex-1 mx-auto max-w-5xl w-full px-4 py-10">
     
-    <!-- Cabeçalho da Página da Foto 3 -->
-    <div class="text-center mb-8 sm:mb-12">
-      <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#204928] tracking-tight">
+    <!-- Título da Foto 3 -->
+    <div class="text-center mb-10">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#204928]">
         Os Nossos Quartos
       </h1>
-      <p class="text-slate-600 text-sm sm:text-base mt-1.5 font-medium">
+      <p class="text-sm sm:text-base text-slate-600 mt-1">
         Escolha o seu alojamento
       </p>
-
-      <!-- Filtros Dinâmicos por Capacidade (Funcionalidade Interativa Extra) -->
-      <div class="mt-6 inline-flex flex-wrap items-center justify-center gap-2 p-1.5 bg-white rounded-2xl border border-slate-200 shadow-sm text-xs sm:text-sm font-medium">
-        <button type="button" class="quarto-filter-btn px-4 py-1.5 rounded-xl bg-[#2e693b] text-white transition-colors" data-filter="todos">
-          Todos os Quartos
-        </button>
-        <button type="button" class="quarto-filter-btn px-4 py-1.5 rounded-xl bg-white text-slate-700 hover:bg-slate-100 transition-colors" data-filter="casal">
-          Quarto Duplo (2 Hóspedes)
-        </button>
-        <button type="button" class="quarto-filter-btn px-4 py-1.5 rounded-xl bg-white text-slate-700 hover:bg-slate-100 transition-colors" data-filter="suite">
-          Suite com Terraço
-        </button>
-        <button type="button" class="quarto-filter-btn px-4 py-1.5 rounded-xl bg-white text-slate-700 hover:bg-slate-100 transition-colors" data-filter="familiar">
-          Familiar (Até 4 Hóspedes)
-        </button>
-      </div>
     </div>
 
-    <!-- Lista de Cartões Horizontais (Foto 3) -->
+    <!-- Lista dos 3 Cartões Horizontais da Foto 3 -->
     <div class="flex flex-col gap-6">
 
       <!-- ======================================================= -->
       <!-- CARTÃO 1: Quarto Duplo Rústico                          -->
       <!-- ======================================================= -->
-      <article
-        class="quarto-card-item bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-8 group"
-        data-capacidade="casal"
-      >
-        <!-- Foto / Espaço para foto da Foto 3 -->
-        <div class="w-full md:w-64 h-48 sm:h-44 bg-[#e7e4d5] rounded-2xl overflow-hidden relative flex-shrink-0 flex items-center justify-center border border-[#d6d2bf] group-hover:border-emerald-500 transition-colors">
+      <article class="card-quarto-horizontal p-5 flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Espaço para Foto / Foto da Foto 3 -->
+        <div class="espaco-foto w-full md:w-56 h-36 flex-shrink-0 flex items-center justify-center">
           <img
             src="imagens/quarto-rustico.jpg"
-            alt="Fotografia do Quarto Duplo Rústico"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            alt="Quarto Duplo Rústico"
           >
-          <span class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md backdrop-blur-xs">
-            Foto do Quarto
+          <span class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">
+            Espaço para Foto
           </span>
         </div>
 
         <!-- Descrição Central -->
-        <div class="flex-1 text-center md:text-left w-full">
-          <h2 class="font-heading text-xl sm:text-2xl font-bold text-[#204928]">
+        <div class="flex-1 text-center md:text-left">
+          <h2 class="text-xl font-bold text-[#204928]">
             Quarto Duplo Rústico
           </h2>
-          <p class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">
             Wi-Fi &bull; Vista Natureza &bull; WC Privativo
           </p>
-          <p class="text-xs text-slate-500 mt-1.5 hidden sm:block">
-            Cama queen-size com lençóis de algodão biológico, vista desimpedida para as copas das árvores e banho privado com produtos sustentáveis.
+          <p class="text-sm sm:text-base font-bold text-[#204928] mt-2">
+            Desde 85€ / noite
           </p>
-          <div class="mt-3">
-            <span class="text-sm sm:text-base font-extrabold text-[#204928]">
-              Desde 85€ / noite
-            </span>
-          </div>
         </div>
 
         <!-- Botão Vermelho "Reservar Quarto" -->
-        <div class="w-full md:w-auto flex-shrink-0">
-          <a
-            href="contactos.html?quarto=quarto-duplo"
-            class="w-full md:w-auto inline-flex items-center justify-center bg-[#e13a37] hover:bg-[#c82e2b] text-white font-bold text-sm sm:text-base px-6 sm:px-8 py-3 rounded-xl shadow-md hover:shadow-lg transition-all"
-          >
+        <div class="w-full md:w-auto">
+          <a href="reserva.html?quarto=quarto-duplo" class="btn-vermelho w-full md:w-auto text-sm py-2.5 px-6">
             Reservar Quarto
           </a>
         </div>
@@ -187,46 +122,34 @@
       <!-- ======================================================= -->
       <!-- CARTÃO 2: Suite Jardim                                  -->
       <!-- ======================================================= -->
-      <article
-        class="quarto-card-item bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-8 group"
-        data-capacidade="suite"
-      >
-        <!-- Foto / Espaço para foto da Foto 3 -->
-        <div class="w-full md:w-64 h-48 sm:h-44 bg-[#e7e4d5] rounded-2xl overflow-hidden relative flex-shrink-0 flex items-center justify-center border border-[#d6d2bf] group-hover:border-emerald-500 transition-colors">
+      <article class="card-quarto-horizontal p-5 flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Espaço para Foto / Foto da Foto 3 -->
+        <div class="espaco-foto w-full md:w-56 h-36 flex-shrink-0 flex items-center justify-center">
           <img
             src="imagens/suite-jardim.jpg"
-            alt="Fotografia da Suite Jardim com terraço privativo"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            alt="Suite Jardim"
           >
-          <span class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md backdrop-blur-xs">
-            Foto da Suite
+          <span class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">
+            Espaço para Foto
           </span>
         </div>
 
         <!-- Descrição Central -->
-        <div class="flex-1 text-center md:text-left w-full">
-          <h2 class="font-heading text-xl sm:text-2xl font-bold text-[#204928]">
+        <div class="flex-1 text-center md:text-left">
+          <h2 class="text-xl font-bold text-[#204928]">
             Suite Jardim
           </h2>
-          <p class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">
             Wi-Fi &bull; Terraço Privado &bull; Pequeno-almoço
           </p>
-          <p class="text-xs text-slate-500 mt-1.5 hidden sm:block">
-            Saída direta para o jardim botânico privativo, espreguiçadeiras no terraço para contemplar o pôr-do-sol e pequeno-almoço artesanal incluído.
+          <p class="text-sm sm:text-base font-bold text-[#204928] mt-2">
+            Desde 110€ / noite
           </p>
-          <div class="mt-3">
-            <span class="text-sm sm:text-base font-extrabold text-[#204928]">
-              Desde 110€ / noite
-            </span>
-          </div>
         </div>
 
         <!-- Botão Vermelho "Reservar Quarto" -->
-        <div class="w-full md:w-auto flex-shrink-0">
-          <a
-            href="contactos.html?quarto=suite-jardim"
-            class="w-full md:w-auto inline-flex items-center justify-center bg-[#e13a37] hover:bg-[#c82e2b] text-white font-bold text-sm sm:text-base px-6 sm:px-8 py-3 rounded-xl shadow-md hover:shadow-lg transition-all"
-          >
+        <div class="w-full md:w-auto">
+          <a href="reserva.html?quarto=suite-jardim" class="btn-vermelho w-full md:w-auto text-sm py-2.5 px-6">
             Reservar Quarto
           </a>
         </div>
@@ -235,46 +158,34 @@
       <!-- ======================================================= -->
       <!-- CARTÃO 3: Quarto Familiar Arara                         -->
       <!-- ======================================================= -->
-      <article
-        class="quarto-card-item bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-8 group"
-        data-capacidade="familiar"
-      >
-        <!-- Foto / Espaço para foto da Foto 3 -->
-        <div class="w-full md:w-64 h-48 sm:h-44 bg-[#e7e4d5] rounded-2xl overflow-hidden relative flex-shrink-0 flex items-center justify-center border border-[#d6d2bf] group-hover:border-emerald-500 transition-colors">
+      <article class="card-quarto-horizontal p-5 flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Espaço para Foto / Foto da Foto 3 -->
+        <div class="espaco-foto w-full md:w-56 h-36 flex-shrink-0 flex items-center justify-center">
           <img
             src="imagens/quarto-familiar.jpg"
-            alt="Fotografia do Quarto Familiar Arara"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            alt="Quarto Familiar Arara"
           >
-          <span class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md backdrop-blur-xs">
-            Foto Familiar
+          <span class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">
+            Espaço para Foto
           </span>
         </div>
 
         <!-- Descrição Central -->
-        <div class="flex-1 text-center md:text-left w-full">
-          <h2 class="font-heading text-xl sm:text-2xl font-bold text-[#204928]">
+        <div class="flex-1 text-center md:text-left">
+          <h2 class="text-xl font-bold text-[#204928]">
             Quarto Familiar Arara
           </h2>
-          <p class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">
             Wi-Fi &bull; Vista Natureza &bull; Capacidade para 4
           </p>
-          <p class="text-xs text-slate-500 mt-1.5 hidden sm:block">
-            Quarto espaçoso com cama de casal mais duas camas individuais confortáveis, perfeito para famílias com crianças ou pequenos grupos de amigos.
+          <p class="text-sm sm:text-base font-bold text-[#204928] mt-2">
+            Desde 135€ / noite
           </p>
-          <div class="mt-3">
-            <span class="text-sm sm:text-base font-extrabold text-[#204928]">
-              Desde 135€ / noite
-            </span>
-          </div>
         </div>
 
         <!-- Botão Vermelho "Reservar Quarto" -->
-        <div class="w-full md:w-auto flex-shrink-0">
-          <a
-            href="contactos.html?quarto=quarto-familiar"
-            class="w-full md:w-auto inline-flex items-center justify-center bg-[#e13a37] hover:bg-[#c82e2b] text-white font-bold text-sm sm:text-base px-6 sm:px-8 py-3 rounded-xl shadow-md hover:shadow-lg transition-all"
-          >
+        <div class="w-full md:w-auto">
+          <a href="reserva.html?quarto=quarto-familiar" class="btn-vermelho w-full md:w-auto text-sm py-2.5 px-6">
             Reservar Quarto
           </a>
         </div>
@@ -282,97 +193,58 @@
 
     </div>
 
-    <!-- Secção de Comodidades Comuns do Alojamento -->
-    <section class="mt-14 p-6 sm:p-8 bg-white rounded-3xl border border-slate-200/90 shadow-sm">
-      <h3 class="font-heading text-lg sm:text-xl font-bold text-[#204928] mb-4">
-        Incluído em Todas as Estadias no Ninho D'Arara
-      </h3>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs sm:text-sm text-slate-700">
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-700 font-bold">✓</span> Internet Wi-Fi gratuita
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-700 font-bold">✓</span> Estacionamento privado
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-700 font-bold">✓</span> Ar Condicionado &amp; Aquecimento
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-700 font-bold">✓</span> Acesso aos trilhos pedestres
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-700 font-bold">✓</span> Toalhas e produtos biológicos
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-700 font-bold">✓</span> Chaleira e chá de boas-vindas
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-700 font-bold">✓</span> Limpeza diária dos quartos
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-700 font-bold">✓</span> Animais bem-vindos (sob pedido)
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- ========================================================= -->
   <!-- RODAPÉ / FOOTER (Foto 3)                                  -->
   <!-- ========================================================= -->
-  <footer class="bg-[#2e693b] text-white mt-auto border-t border-emerald-800">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+  <footer class="rodape-ninho mt-auto">
+    <div class="mx-auto max-w-6xl px-4 py-8">
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-xs sm:text-sm">
         
         <!-- Coluna 1: Morada -->
         <div>
-          <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2">MORADA</h4>
+          <h4 class="rodape-titulo">MORADA</h4>
           <p class="text-emerald-100/90 leading-relaxed">
             Rua da Natureza, 123<br>
-            Freguesia Verde<br>
-            <span class="text-emerald-300/80 text-xs">0000-000 Arara, Portugal</span>
+            Freguesia Verde
           </p>
         </div>
 
         <!-- Coluna 2: Contactos -->
         <div>
-          <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2">CONTACTOS</h4>
+          <h4 class="rodape-titulo">CONTACTOS</h4>
           <p class="text-emerald-100/90 leading-relaxed">
-            <span class="text-emerald-300 font-medium">Telefone:</span> +351 210 000 000<br>
-            <span class="text-emerald-300 font-medium">Email:</span> reservas@ninhodarara.pt<br>
-            <span class="text-emerald-300 font-medium">Geral:</span> ola@ninhodarara.pt
+            +351 210 000 000<br>
+            reservas@ninhodarara.pt
           </p>
         </div>
 
         <!-- Coluna 3: Horário -->
         <div>
-          <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2">HORÁRIO</h4>
+          <h4 class="rodape-titulo">HORÁRIO</h4>
           <p class="text-emerald-100/90 leading-relaxed">
-            <span class="text-emerald-300 font-medium">Receção:</span> 08:00 — 22:00<br>
-            <span class="text-emerald-300 font-medium">Cafetaria:</span> 08:00 — 20:00<br>
-            <span class="text-emerald-300 font-medium">Atendimento:</span> Todos os dias
+            Receção: 08:00 — 22:00<br>
+            Todos os dias
           </p>
         </div>
 
-        <!-- Coluna 4: Acesso Reservado -->
+        <!-- Coluna 4: Redes Sociais e Acesso Reservado -->
         <div class="flex flex-col justify-between sm:items-end">
           <div>
-            <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2 sm:text-right">REDES SOCIAIS</h4>
-            <div class="flex gap-3 text-emerald-100 text-xs sm:text-sm sm:justify-end">
-              <a href="#" class="hover:text-emerald-300 transition-colors">Instagram</a>
-              <span class="text-emerald-400/40">&bull;</span>
-              <a href="#" class="hover:text-emerald-300 transition-colors">Facebook</a>
-              <span class="text-emerald-400/40">&bull;</span>
-              <a href="#" class="hover:text-emerald-300 transition-colors">Tripadvisor</a>
+            <h4 class="rodape-titulo sm:text-right">REDES SOCIAIS</h4>
+            <div class="flex gap-2 text-emerald-100 text-xs sm:justify-end">
+              <a href="#" class="hover:text-emerald-300">Instagram</a>
+              <span>&bull;</span>
+              <a href="#" class="hover:text-emerald-300">Facebook</a>
+              <span>&bull;</span>
+              <a href="#" class="hover:text-emerald-300">Tripadvisor</a>
             </div>
           </div>
 
-          <div class="mt-6 sm:mt-0">
-            <a
-              href="entrar.html"
-              class="italic text-emerald-200/90 hover:text-white underline text-xs transition-colors"
-            >
+          <div class="mt-4 sm:mt-0">
+            <a href="entrar.html" class="rodape-link-reservado">
               Acesso Reservado
             </a>
           </div>
@@ -381,9 +253,9 @@
       </div>
 
       <!-- Copyright Rodapé -->
-      <div class="mt-8 pt-6 border-t border-emerald-700/60 flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-emerald-200/70">
-        <p>&copy; 2026/2027 Ninho D'Arara. Projeto de Aplicações Web &bull; Licenciatura em Informática de Gestão &bull; ISCAC.</p>
-        <p>Desenvolvido com HTML5 semântico, JavaScript e Tailwind CSS.</p>
+      <div class="mt-8 pt-4 border-t border-emerald-800 flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-emerald-200/70">
+        <p>&copy; 2026/2027 Ninho D'Arara &bull; Aplicações Web &bull; ISCAC.</p>
+        <p>Desenvolvido com HTML5, CSS e Tailwind CSS.</p>
       </div>
 
     </div>

@@ -1,62 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-PT" class="scroll-smooth">
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ninho D'Arara · Alojamento Local & Cafetaria</title>
+  <title>Ninho D'Arara · Alojamento Local &amp; Cafetaria</title>
   
-  <!-- Tipografia do Google Fonts -->
+  <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            arara: {
-              DEFAULT: '#2e693b',
-              dark: '#204928',
-              darker: '#16351d',
-              sage: '#d8ebd0',
-              sageBorder: '#b3d4ab',
-              cream: '#faf8f5',
-              badge: '#f4f8e6',
-              red: '#e13a37',
-              redHover: '#c82e2b',
-              yellow: '#eab308',
-              blue: '#3b82f6',
-            }
-          },
-          fontFamily: {
-            sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
-            heading: ['"Bricolage Grotesque"', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
   
-  <!-- Scripts de navegação e reservas -->
+  <!-- Estilos CSS Personalizados (Pontuação extra em CSS) -->
+  <link rel="stylesheet" href="css/estilos.css">
+  
+  <!-- Scripts -->
   <script src="js/menu.js" defer></script>
 </head>
-<body class="bg-arara-cream text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="antialiased flex flex-col min-h-screen">
 
   <!-- ========================================================= -->
-  <!-- CABEÇALHO / HEADER                                        -->
+  <!-- CABEÇALHO / HEADER (Foto 1)                               -->
   <!-- ========================================================= -->
-  <header class="bg-[#2e693b] text-white shadow-sm sticky top-0 z-50">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-y-3">
+  <header class="cabecalho-ninho text-white sticky top-0 z-50">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex flex-wrap items-center justify-between gap-y-3">
       
-      <!-- Logótipo e Subtítulo -->
+      <!-- Logótipo e Subtítulo da Foto 1 -->
       <div class="flex items-center gap-3">
-        <a href="index.html" class="inline-block bg-[#f4f8e6] text-[#204928] font-heading font-extrabold px-4 py-1.5 rounded-xl text-base sm:text-lg tracking-wider border border-white/60 shadow-sm hover:scale-[1.02] transition-transform">
+        <a href="index.html" class="logo-badge inline-block px-4 py-1.5 rounded-xl text-base sm:text-lg border border-white/60">
           NINHO D'ARARA
         </a>
-        <span class="text-xs sm:text-sm text-emerald-100/90 font-medium tracking-wide">
+        <span class="text-xs sm:text-sm text-emerald-100 font-medium">
           Alojamento Local &amp; Cafetaria
         </span>
       </div>
@@ -67,38 +43,22 @@
         id="menu-botao"
         aria-expanded="false"
         aria-controls="menu-principal"
-        class="md:hidden inline-flex items-center gap-1.5 rounded-lg border border-emerald-400/40 px-3 py-1.5 text-xs uppercase font-semibold text-white hover:bg-emerald-800/80 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+        class="md:hidden inline-flex items-center gap-1.5 rounded-lg border border-emerald-400/40 px-3 py-1.5 text-xs uppercase font-semibold text-white hover:bg-emerald-800"
       >
         <span id="menu-icone" aria-hidden="true" class="text-base font-bold">☰</span>
         <span>Menu</span>
       </button>
 
       <!-- Navegação Principal -->
-      <nav id="menu-principal" aria-label="Navegação Principal" class="hidden md:block w-full md:w-auto">
-        <ul class="flex flex-col md:flex-row md:items-center gap-1 sm:gap-2 text-sm pt-3 md:pt-0 border-t border-emerald-700/60 md:border-none font-medium">
-          <li>
-            <a href="index.html" class="block px-3 py-1 rounded-md text-white font-bold bg-emerald-800/60 md:bg-transparent md:border-b-2 md:border-white">
-              Início
-            </a>
-          </li>
-          <li class="hidden md:inline text-emerald-300/40 select-none">|</li>
-          <li>
-            <a href="alojamento.html" class="block px-3 py-1 rounded-md text-emerald-100 hover:text-white hover:bg-emerald-800/40 transition-colors">
-              Alojamento
-            </a>
-          </li>
-          <li class="hidden md:inline text-emerald-300/40 select-none">|</li>
-          <li>
-            <a href="restaurante.html" class="block px-3 py-1 rounded-md text-emerald-100 hover:text-white hover:bg-emerald-800/40 transition-colors">
-              Restaurante
-            </a>
-          </li>
-          <li class="hidden md:inline text-emerald-300/40 select-none">|</li>
-          <li>
-            <a href="contactos.html" class="block px-3 py-1 rounded-md text-emerald-100 hover:text-white hover:bg-emerald-800/40 transition-colors">
-              Contactos
-            </a>
-          </li>
+      <nav id="menu-principal" aria-label="Principal" class="hidden md:block w-full md:w-auto">
+        <ul class="flex flex-col md:flex-row md:items-center gap-1 sm:gap-2 text-sm pt-3 md:pt-0 border-t border-emerald-700/60 md:border-none">
+          <li><a href="index.html" class="nav-link ativo">Início</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="alojamento.html" class="nav-link">Alojamento</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="restaurante.html" class="nav-link">Restaurante</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="reserva.html" class="nav-link">Reservas</a></li>
         </ul>
       </nav>
 
@@ -106,212 +66,164 @@
   </header>
 
   <!-- ========================================================= -->
-  <!-- SECTOR HERO (Fiel às Fotos 1 e 2)                         -->
+  <!-- SECÇÃO HERO (Fiel à Foto 1)                               -->
   <!-- ========================================================= -->
-  <section class="bg-[#d8ebd0] border-b-2 border-dashed border-[#b3d4ab] pt-12 pb-14 px-4 sm:px-6 relative overflow-hidden">
-    
-    <!-- Elementos decorativos de fundo subtis -->
-    <div class="absolute inset-0 pointer-events-none opacity-20">
-      <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-emerald-600 blur-3xl"></div>
-      <div class="absolute -left-16 -bottom-16 w-80 h-80 rounded-full bg-emerald-400 blur-3xl"></div>
-    </div>
-
-    <div class="mx-auto max-w-4xl text-center relative z-10 flex flex-col items-center">
+  <section class="hero-ninho pt-12 pb-14 px-4 text-center">
+    <div class="mx-auto max-w-3xl flex flex-col items-center">
       
       <!-- Subtítulo Superior da Foto 1 -->
-      <span class="text-[#204928] text-xs sm:text-sm font-bold tracking-[0.2em] uppercase">
-        Natureza Panorâmica
+      <span class="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#204928] uppercase">
+        NATUREZA PANORÂMICA
       </span>
-      <p class="text-[#2e693b] italic text-xs sm:text-sm mt-0.5 mb-6">
+      <p class="text-xs sm:text-sm italic text-[#2e693b] mt-0.5 mb-6">
         árvores &bull; montanhas &bull; rio &bull; aves
       </p>
 
-      <!-- Caixa Principal com Cantos Arredondados (Foto 1) -->
-      <div class="w-full max-w-2xl bg-white/95 rounded-2xl border border-[#c2dec0] px-6 sm:px-10 py-5 sm:py-6 shadow-sm hover:shadow-md transition-shadow">
-        <h1 class="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#204928] tracking-tight">
+      <!-- Caixa Principal Arredondada (Foto 1) -->
+      <div class="hero-caixa w-full max-w-2xl px-6 py-5 sm:py-6">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#204928]">
           Bem-vindo ao Ninho D'Arara
         </h1>
       </div>
 
-      <!-- Slogan Descritivo -->
-      <p class="text-[#204928] text-sm sm:text-base font-medium mt-5 max-w-xl">
+      <!-- Slogan da Foto 1 -->
+      <p class="text-sm sm:text-base font-medium text-[#204928] mt-4 mb-5">
         Descanse, saboreie e descubra a natureza.
       </p>
 
-      <!-- Botão Vermelho de Ação "Fazer Reserva" (Foto 1) -->
-      <div class="mt-5">
-        <a
-          href="contactos.html"
-          class="inline-flex items-center justify-center bg-[#e13a37] hover:bg-[#c82e2b] text-white font-bold text-sm sm:text-base px-8 py-3 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all focus:outline-none focus:ring-4 focus:ring-red-300"
-        >
-          Fazer Reserva
-        </a>
-      </div>
+      <!-- Botão Vermelho "Fazer Reserva" (Foto 1) -->
+      <a href="reserva.html" class="btn-vermelho text-sm sm:text-base">
+        Fazer Reserva
+      </a>
 
     </div>
   </section>
 
   <!-- ========================================================= -->
-  <!-- BANNER OPCIONAL FOTOGRÁFICO (Inspirado no Wireframe Foto 2)-->
+  <!-- BANNER FOTOGRÁFICO DE NATUREZA (Wireframe Foto 2)          -->
   <!-- ========================================================= -->
-  <section class="mx-auto max-w-6xl px-4 sm:px-6 -mt-6 sm:-mt-8 relative z-20">
-    <div class="relative rounded-2xl overflow-hidden shadow-lg border-2 border-white/80 group">
+  <div class="mx-auto max-w-5xl px-4 -mt-5 relative z-10">
+    <div class="rounded-2xl overflow-hidden shadow-md border-2 border-white">
       <img
         src="imagens/hero-natureza.jpg"
-        alt="Vista panorâmica da floresta e montanhas envolventes do Ninho D'Arara"
-        class="w-full h-48 sm:h-64 object-cover object-center group-hover:scale-105 transition-transform duration-700"
+        alt="Paisagem natural panorâmica do Ninho D'Arara"
+        class="w-full h-44 sm:h-56 object-cover"
       >
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-4 sm:p-6">
-        <div class="text-white">
-          <p class="text-xs uppercase font-bold tracking-widest text-emerald-300">Refúgio Natural Exclusivo</p>
-          <p class="text-sm sm:text-base font-medium text-white/95">Um retiro ecológico com o conforto e a gastronomia que o seu descanso merece.</p>
-        </div>
-      </div>
     </div>
-  </section>
+  </div>
 
   <!-- ========================================================= -->
   <!-- SECÇÃO "DESCUBRA O NINHO D'ARARA" (Foto 1 e Foto 2)       -->
   <!-- ========================================================= -->
-  <main class="flex-1 mx-auto max-w-6xl w-full px-4 sm:px-6 py-12">
+  <main class="flex-1 mx-auto max-w-5xl w-full px-4 py-12">
     
-    <div class="text-center mb-10">
-      <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-[#204928] tracking-tight">
+    <div class="text-center mb-8">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-[#204928]">
         Descubra o Ninho D'Arara
       </h2>
-      <p class="text-slate-500 text-sm mt-1 max-w-lg mx-auto">
-        Três pilares fundamentais para transformar a sua estadia numa experiência memorável.
-      </p>
     </div>
 
-    <!-- Grelha dos 3 Cartões (Alojamento, Cafetaria, Natureza Envolvente) -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+    <!-- 3 Cartões (1. Alojamento, 2. Cafetaria, 3. Natureza Envolvente) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       
       <!-- Cartão 1: Alojamento -->
-      <article class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+      <article class="card-destaque flex flex-col justify-between overflow-hidden">
         <div>
-          <!-- Imagem de pré-visualização (Wireframe Foto 2) -->
-          <div class="h-44 overflow-hidden relative">
+          <div class="h-40 overflow-hidden relative">
             <img
               src="imagens/quarto-rustico.jpg"
-              alt="Quarto Duplo Rústico no Ninho D'Arara"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Quarto Duplo Rústico"
+              class="w-full h-full object-cover"
             >
-            <div class="absolute top-3 left-3 w-10 h-10 rounded-full bg-[#f1c40f] text-slate-900 flex items-center justify-center shadow-md font-bold text-sm">
-              <!-- Ícone Quadrado/Alojamento da Foto 1 -->
-              <svg class="w-5 h-5 text-amber-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Ícone Amarelo com Quadrado da Foto 1 -->
+            <div class="absolute top-3 left-3 w-9 h-9 rounded-full bg-[#f1c40f] text-slate-900 flex items-center justify-center shadow">
+              <svg class="w-4 h-4 text-amber-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <rect x="4" y="4" width="16" height="16" rx="2" stroke-width="2"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9h6v6H9z"/>
               </svg>
             </div>
           </div>
 
-          <div class="p-6">
-            <h3 class="font-heading text-xl font-bold text-[#204928] group-hover:text-emerald-700 transition-colors">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-[#204928]">
               1. Alojamento
             </h3>
-            <p class="text-slate-600 text-sm mt-2 leading-relaxed">
-              Quartos acolhedores, tranquilos e integrados na paisagem envolvente. Ideais para recarregar energias.
+            <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+              Quartos acolhedores, tranquilos e integrados na paisagem.
             </p>
-            <div class="mt-4 flex flex-wrap gap-1.5 text-xs text-emerald-800">
-              <span class="bg-emerald-50 px-2 py-0.5 rounded-md font-medium border border-emerald-100">Wi-Fi</span>
-              <span class="bg-emerald-50 px-2 py-0.5 rounded-md font-medium border border-emerald-100">Vista Natureza</span>
-              <span class="bg-emerald-50 px-2 py-0.5 rounded-md font-medium border border-emerald-100">WC Privativo</span>
-            </div>
           </div>
         </div>
 
-        <div class="p-6 pt-0">
-          <a
-            href="alojamento.html"
-            class="block w-full text-center bg-[#e13a37] hover:bg-[#c82e2b] text-white font-semibold text-sm py-2.5 rounded-xl shadow-sm hover:shadow transition-all"
-          >
+        <div class="p-5 pt-0">
+          <a href="alojamento.html" class="btn-vermelho w-full text-xs py-2">
             Ver quartos
           </a>
         </div>
       </article>
 
       <!-- Cartão 2: Cafetaria -->
-      <article class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+      <article class="card-destaque flex flex-col justify-between overflow-hidden">
         <div>
-          <!-- Imagem de pré-visualização (Wireframe Foto 2) -->
-          <div class="h-44 overflow-hidden relative">
+          <div class="h-40 overflow-hidden relative">
             <img
               src="imagens/cafetaria.jpg"
-              alt="Cafetaria e Pequeno-Almoço no Ninho D'Arara"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Cafetaria e pequenos-almoços"
+              class="w-full h-full object-cover"
             >
-            <div class="absolute top-3 left-3 w-10 h-10 rounded-full bg-[#e13a37] text-white flex items-center justify-center shadow-md font-bold text-sm">
-              <!-- Ícone Chávena da Foto 1 -->
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Ícone Vermelho com Chávena da Foto 1 -->
+            <div class="absolute top-3 left-3 w-9 h-9 rounded-full bg-[#e13a37] text-white flex items-center justify-center shadow">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/>
               </svg>
             </div>
           </div>
 
-          <div class="p-6">
-            <h3 class="font-heading text-xl font-bold text-[#204928] group-hover:text-emerald-700 transition-colors">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-[#204928]">
               2. Cafetaria
             </h3>
-            <p class="text-slate-600 text-sm mt-2 leading-relaxed">
-              Sabores locais, café aromático de especialidade e momentos para partilhar à mesa com produtos da terra.
+            <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+              Sabores locais, café aromático e momentos para partilhar.
             </p>
-            <div class="mt-4 flex flex-wrap gap-1.5 text-xs text-emerald-800">
-              <span class="bg-emerald-50 px-2 py-0.5 rounded-md font-medium border border-emerald-100">Produtos Bio</span>
-              <span class="bg-emerald-50 px-2 py-0.5 rounded-md font-medium border border-emerald-100">Panquecas</span>
-              <span class="bg-emerald-50 px-2 py-0.5 rounded-md font-medium border border-emerald-100">Tapas Regionais</span>
-            </div>
           </div>
         </div>
 
-        <div class="p-6 pt-0">
-          <a
-            href="restaurante.html"
-            class="block w-full text-center bg-[#e13a37] hover:bg-[#c82e2b] text-white font-semibold text-sm py-2.5 rounded-xl shadow-sm hover:shadow transition-all"
-          >
+        <div class="p-5 pt-0">
+          <a href="restaurante.html" class="btn-vermelho w-full text-xs py-2">
             Ver ementa
           </a>
         </div>
       </article>
 
       <!-- Cartão 3: Natureza Envolvente -->
-      <article class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+      <article class="card-destaque flex flex-col justify-between overflow-hidden">
         <div>
-          <!-- Imagem de pré-visualização (Wireframe Foto 2) -->
-          <div class="h-44 overflow-hidden relative">
+          <div class="h-40 overflow-hidden relative">
             <img
               src="imagens/natureza-trilho.jpg"
-              alt="Trilhos na natureza junto ao rio no Ninho D'Arara"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Natureza envolvente e trilhos"
+              class="w-full h-full object-cover"
             >
-            <div class="absolute top-3 left-3 w-10 h-10 rounded-full bg-[#3b82f6] text-white flex items-center justify-center shadow-md font-bold text-sm">
-              <!-- Ícone Estrela/Sparkle da Foto 1 -->
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Ícone Azul com Brilho da Foto 1 -->
+            <div class="absolute top-3 left-3 w-9 h-9 rounded-full bg-[#3b82f6] text-white flex items-center justify-center shadow">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2L12 16.8 5.6 21.2 8 14 2 9.2h7.6L12 2z"/>
               </svg>
             </div>
           </div>
 
-          <div class="p-6">
-            <h3 class="font-heading text-xl font-bold text-[#204928] group-hover:text-emerald-700 transition-colors">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-[#204928]">
               3. Natureza Envolvente
             </h3>
-            <p class="text-slate-600 text-sm mt-2 leading-relaxed">
-              Trilhos, ar puro e paisagens deslumbrantes para explorar sem pressa, ao ritmo tranquilo da floresta.
+            <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+              Trilhos, ar puro e paisagens para explorar sem pressa.
             </p>
-            <div class="mt-4 flex flex-wrap gap-1.5 text-xs text-emerald-800">
-              <span class="bg-emerald-50 px-2 py-0.5 rounded-md font-medium border border-emerald-100">Trilhos a pé</span>
-              <span class="bg-emerald-50 px-2 py-0.5 rounded-md font-medium border border-emerald-100">Banhos de Rio</span>
-              <span class="bg-emerald-50 px-2 py-0.5 rounded-md font-medium border border-emerald-100">Observação Aves</span>
-            </div>
           </div>
         </div>
 
-        <div class="p-6 pt-0">
-          <a
-            href="contactos.html#experiencias"
-            class="block w-full text-center bg-[#e5a83b] hover:bg-[#d0952d] text-white font-semibold text-sm py-2.5 rounded-xl shadow-sm hover:shadow transition-all"
-          >
+        <div class="p-5 pt-0">
+          <a href="reserva.html" class="btn-amarelo w-full text-xs py-2">
             Explorar
           </a>
         </div>
@@ -319,85 +231,58 @@
 
     </div>
 
-    <!-- Secção Informativa Rápida: Natureza Panorâmica -->
-    <section class="mt-14 bg-gradient-to-r from-emerald-50 to-[#d8ebd0]/60 rounded-3xl border border-emerald-200/80 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex-1">
-        <span class="text-xs font-bold uppercase tracking-widest text-[#204928]">Experiência Imersiva</span>
-        <h3 class="font-heading text-xl sm:text-2xl font-extrabold text-[#204928] mt-1">
-          Pronto para desconectar e viver a serenidade?
-        </h3>
-        <p class="text-slate-600 text-sm mt-2 max-w-xl">
-          No Ninho D'Arara cada detalhe é pensado para o seu bem-estar. Acorde com o chilrear dos pássaros, saboreie o pequeno-almoço com produtos colhidos no mesmo dia e termine a tarde junto à lareira ou na esplanada.
-        </p>
-      </div>
-      <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-        <a href="alojamento.html" class="inline-flex justify-center items-center bg-[#2e693b] hover:bg-[#204928] text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition">
-          Ver Quartos e Preços
-        </a>
-        <a href="contactos.html" class="inline-flex justify-center items-center bg-[#e13a37] hover:bg-[#c82e2b] text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition">
-          Reservar Estadia
-        </a>
-      </div>
-    </section>
-
   </main>
 
   <!-- ========================================================= -->
-  <!-- RODAPÉ / FOOTER (Fiel às Fotos 1, 2 e 3)                  -->
+  <!-- RODAPÉ / FOOTER (Foto 1)                                  -->
   <!-- ========================================================= -->
-  <footer class="bg-[#2e693b] text-white mt-auto border-t border-emerald-800">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+  <footer class="rodape-ninho mt-auto">
+    <div class="mx-auto max-w-6xl px-4 py-8">
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-xs sm:text-sm">
         
         <!-- Coluna 1: Morada -->
         <div>
-          <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2">MORADA</h4>
+          <h4 class="rodape-titulo">MORADA</h4>
           <p class="text-emerald-100/90 leading-relaxed">
             Rua da Natureza, 123<br>
-            0000-000 Arara<br>
-            <span class="text-emerald-300/80 text-xs">Freguesia Verde, Portugal</span>
+            0000-000 Arara
           </p>
         </div>
 
         <!-- Coluna 2: Contactos -->
         <div>
-          <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2">CONTACTOS</h4>
+          <h4 class="rodape-titulo">CONTACTOS</h4>
           <p class="text-emerald-100/90 leading-relaxed">
-            <span class="text-emerald-300 font-medium">Telefone:</span> +351 210 000 000<br>
-            <span class="text-emerald-300 font-medium">Email:</span> ola@ninhodarara.pt<br>
-            <span class="text-emerald-300 font-medium">Reservas:</span> reservas@ninhodarara.pt
+            +351 000 000 000<br>
+            ola@ninhodarara.pt
           </p>
         </div>
 
         <!-- Coluna 3: Horário -->
         <div>
-          <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2">HORÁRIO</h4>
+          <h4 class="rodape-titulo">HORÁRIO</h4>
           <p class="text-emerald-100/90 leading-relaxed">
-            <span class="text-emerald-300 font-medium">Cafetaria:</span> 08:00 — 20:00<br>
-            <span class="text-emerald-300 font-medium">Receção:</span> 08:00 — 22:00<br>
-            <span class="text-emerald-300 font-medium">Reservas:</span> Todos os dias
+            Cafetaria: 08:00 — 20:00<br>
+            Reservas: todos os dias
           </p>
         </div>
 
-        <!-- Coluna 4: Redes Sociais & Acesso Reservado -->
+        <!-- Coluna 4: Acesso Reservado e Redes Sociais -->
         <div class="flex flex-col justify-between sm:items-end">
           <div>
-            <h4 class="font-bold uppercase tracking-wider text-emerald-200 mb-2 sm:text-right">REDES SOCIAIS</h4>
-            <div class="flex gap-3 text-emerald-100 text-xs sm:text-sm sm:justify-end">
-              <a href="#" class="hover:text-emerald-300 transition-colors">Instagram</a>
-              <span class="text-emerald-400/40">&bull;</span>
-              <a href="#" class="hover:text-emerald-300 transition-colors">Facebook</a>
-              <span class="text-emerald-400/40">&bull;</span>
-              <a href="#" class="hover:text-emerald-300 transition-colors">Tripadvisor</a>
+            <h4 class="rodape-titulo sm:text-right">REDES SOCIAIS</h4>
+            <div class="flex gap-2 text-emerald-100 text-xs sm:justify-end">
+              <a href="#" class="hover:text-emerald-300">Instagram</a>
+              <span>&bull;</span>
+              <a href="#" class="hover:text-emerald-300">Facebook</a>
+              <span>&bull;</span>
+              <a href="#" class="hover:text-emerald-300">Tripadvisor</a>
             </div>
           </div>
 
-          <div class="mt-6 sm:mt-0">
-            <a
-              href="entrar.html"
-              class="italic text-emerald-200/90 hover:text-white underline text-xs transition-colors"
-            >
+          <div class="mt-4 sm:mt-0">
+            <a href="entrar.html" class="rodape-link-reservado">
               Acesso Reservado
             </a>
           </div>
@@ -406,9 +291,9 @@
       </div>
 
       <!-- Copyright Rodapé -->
-      <div class="mt-8 pt-6 border-t border-emerald-700/60 flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-emerald-200/70">
-        <p>&copy; 2026/2027 Ninho D'Arara. Projeto de Aplicações Web &bull; Licenciatura em Informática de Gestão &bull; ISCAC.</p>
-        <p>Desenvolvido com HTML5 semântico, JavaScript e Tailwind CSS.</p>
+      <div class="mt-8 pt-4 border-t border-emerald-800 flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-emerald-200/70">
+        <p>&copy; 2026/2027 Ninho D'Arara &bull; Aplicações Web &bull; ISCAC.</p>
+        <p>Desenvolvido com HTML5, CSS e Tailwind CSS.</p>
       </div>
 
     </div>

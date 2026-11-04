@@ -1,29 +1,29 @@
 // ==========================================
 // NINHO D'ARARA - Gestão de Reservas e Validação
-// Licenciatura em Informática de Gestão - Aplicações Web
+// Aplicações Web · Licenciatura em Informática de Gestão
 // ==========================================
 
 const PRECOS_QUARTOS = {
   'quarto-duplo': { nome: 'Quarto Duplo Rústico', preco: 85 },
-  'suite-jardim': { nome: 'Suite Jardim', preco: 110 },
+  'suite-jardim': { nome: 'Suite Jardim com Terraço', preco: 110 },
   'quarto-familiar': { nome: 'Quarto Familiar Arara', preco: 135 },
-  'cafetaria': { nome: 'Mesa na Cafetaria / Restaurante', preco: 0 }
+  'cafetaria': { nome: 'Mesa na Cafetaria', preco: 0 }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Preenchimento automático por parâmetro de URL (ex: contactos.html?quarto=suite-jardim)
+  // 1. Ler quarto pré-selecionado a partir do URL (ex: reserva.html?quarto=suite-jardim)
   const params = new URLSearchParams(window.location.search);
   const quartoParam = params.get('quarto');
 
   const selectQuarto = document.querySelector('#quarto-select');
   const inputCheckIn = document.querySelector('#data-checkin');
   const inputCheckOut = document.querySelector('#data-checkout');
+  const erroDatas = document.querySelector('#erro-datas');
   const resumoCalculo = document.querySelector('#resumo-calculo');
   const formReserva = document.querySelector('#form-reserva');
   const mensagemSucesso = document.querySelector('#mensagem-sucesso');
-  const mensagemErro = document.querySelector('#mensagem-erro');
 
-  // Inicializar datas mínimas (não permitir datas no passado)
+  // Inicializar datas por omissão
   const hoje = new Date();
   const hojeISO = hoje.toISOString().split('T')[0];
   
@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!inputCheckOut.value) inputCheckOut.value = depoisDeAmanhaISO;
 
     inputCheckIn.addEventListener('change', () => {
-      // Ajustar data mínima de checkout para o dia seguinte ao checkin
       const dataIn = new Date(inputCheckIn.value);
       if (!isNaN(dataIn.getTime())) {
         dataIn.setDate(dataIn.getDate() + 1);
@@ -52,10 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
           inputCheckOut.value = dataIn.toISOString().split('T')[0];
         }
       }
+      validarDatas();
       atualizarCalculoResumo();
     });
 
-    inputCheckOut.addEventListener('change', atualizarCalculoResumo);
+    inputCheckOut.addEventListener('change', () => {
+      validarDatas();
+      atualizarCalculoResumo();
+    });
   }
 
   if (selectQuarto) {
@@ -63,6 +66,22 @@ document.addEventListener('DOMContentLoaded', () => {
       selectQuarto.value = quartoParam;
     }
     selectQuarto.addEventListener('change', atualizarCalculoResumo);
+  }
+
+  function validarDatas() {
+    if (!inputCheckIn || !inputCheckOut || !erroDatas) return true;
+    const inDate = new Date(inputCheckIn.value);
+    const outDate = new Date(inputCheckOut.value);
+
+    if (outDate <= inDate) {
+      erroDatas.classList.remove('hidden');
+      inputCheckOut.style.borderColor = '#dc2626';
+      return false;
+    } else {
+      erroDatas.classList.add('hidden');
+      inputCheckOut.style.borderColor = '';
+      return true;
+    }
   }
 
   function calcularNoites() {
@@ -77,11 +96,16 @@ document.addEventListener('DOMContentLoaded', () => {
   function atualizarCalculoResumo() {
     if (!resumoCalculo || !selectQuarto) return;
     const infoQuarto = PRECOS_QUARTOS[selectQuarto.value];
-    if (!infoQuarto || infoQuarto.preco === 0) {
+    
+    if (!infoQuarto) {
+      resumoCalculo.innerHTML = '';
+      return;
+    }
+
+    if (infoQuarto.preco === 0) {
       resumoCalculo.innerHTML = `
-        <div class="rounded-lg bg-emerald-50 border border-emerald-200 p-3 text-sm text-emerald-900">
-          <p class="font-semibold">Reserva de Mesa / Visita à Cafetaria</p>
-          <p class="text-xs text-emerald-700">Sem custos de estadia. O pagamento é efetuado no local consoante o consumo.</p>
+        <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-3 text-xs text-emerald-900">
+          <strong>Reserva de Mesa na Cafetaria:</strong> Sem custo de alojamento. O valor das refeições é pago no local.
         </div>
       `;
       return;
@@ -91,112 +115,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const total = noites * infoQuarto.preco;
 
     resumoCalculo.innerHTML = `
-      <div class="rounded-lg bg-emerald-50 border border-emerald-200 p-4 text-sm text-emerald-950 flex flex-col gap-2">
-        <div class="flex justify-between items-center border-b border-emerald-200 pb-2">
-          <span class="font-medium text-emerald-800">${infoQuarto.nome}</span>
-          <span class="text-xs bg-emerald-200 text-emerald-900 px-2 py-0.5 rounded-full font-semibold">${infoQuarto.preco}€ / noite</span>
+      <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-3.5 text-xs text-emerald-950 flex flex-col gap-1.5">
+        <div class="flex justify-between items-center border-b border-emerald-200 pb-1.5">
+          <span class="font-semibold text-emerald-900">${infoQuarto.nome}</span>
+          <span class="bg-emerald-200 text-emerald-950 px-2 py-0.5 rounded font-bold">${infoQuarto.preco}€ / noite</span>
         </div>
-        <div class="flex justify-between text-xs text-emerald-700">
-          <span>Duração:</span>
-          <span class="font-medium">${noites} ${noites === 1 ? 'noite' : 'noites'}</span>
+        <div class="flex justify-between items-center text-emerald-800">
+          <span>Estadia: ${noites} ${noites === 1 ? 'noite' : 'noites'}</span>
+          <span class="text-sm font-extrabold text-[#e13a37]">Total: ${total} €</span>
         </div>
-        <div class="flex justify-between items-baseline pt-1">
-          <span class="font-bold text-sm text-emerald-900">Total Estimado:</span>
-          <span class="text-xl font-bold text-[#e13a37]">${total} €</span>
-        </div>
-        <p class="text-[11px] text-emerald-600 italic">Preço com impostos incluídos e cancelamento gratuito até 48h antes.</p>
       </div>
     `;
   }
 
-  // Executar cálculo inicial
+  // Executar o cálculo logo ao abrir
   atualizarCalculoResumo();
 
-  // Validação do Formulário
+  // Validação no envio do formulário
   if (formReserva) {
     formReserva.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      let valido = true;
-      let mensagem = '';
-
-      const nome = document.querySelector('#nome-completo');
-      const email = document.querySelector('#email-contacto');
-      const telefone = document.querySelector('#telefone-contacto');
-
-      if (!nome || !nome.value.trim()) {
-        valido = false;
-        mensagem = 'Por favor, indique o seu nome completo.';
-      } else if (!email || !email.validity.valid) {
-        valido = false;
-        mensagem = 'Por favor, indique um endereço de e-mail válido.';
-      } else if (inputCheckIn && inputCheckOut) {
-        const inDate = new Date(inputCheckIn.value);
-        const outDate = new Date(inputCheckOut.value);
-        if (outDate <= inDate) {
-          valido = false;
-          mensagem = 'A data de check-out tem de ser posterior à data de check-in.';
-        }
+      // Verificar validação nativa de HTML5 (required, email, pattern, minlength)
+      if (!formReserva.checkValidity()) {
+        formReserva.reportValidity();
+        return;
       }
 
-      if (!valido) {
-        if (mensagemErro) {
-          mensagemErro.textContent = mensagem;
-          mensagemErro.classList.remove('hidden');
-          if (mensagemSucesso) mensagemSucesso.classList.add('hidden');
-        } else {
-          alert(mensagem);
-        }
+      // Validar se as datas estão corretas
+      if (!validarDatas()) {
+        inputCheckOut.focus();
         return;
       }
 
       // Sucesso
-      if (mensagemErro) mensagemErro.classList.add('hidden');
       if (mensagemSucesso) {
         mensagemSucesso.classList.remove('hidden');
         mensagemSucesso.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
 
-      // Desativar botão temporariamente para feedback
       const submitBtn = formReserva.querySelector('button[type="submit"]');
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '✓ Pedido de Reserva Registado';
+        submitBtn.innerHTML = '✓ Pedido Enviado!';
         setTimeout(() => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = 'Confirmar Pedido de Reserva';
-        }, 5000);
+        }, 4000);
       }
-    });
-  }
-
-  // Filtros interativos para a página de alojamento.html
-  const filterBtns = document.querySelectorAll('.quarto-filter-btn');
-  const roomCards = document.querySelectorAll('.quarto-card-item');
-
-  if (filterBtns.length > 0 && roomCards.length > 0) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Remover estado ativo de todos
-        filterBtns.forEach(b => {
-          b.classList.remove('bg-[#2e693b]', 'text-white');
-          b.classList.add('bg-white', 'text-slate-700', 'border-slate-300');
-        });
-        // Ativar botão clicado
-        btn.classList.add('bg-[#2e693b]', 'text-white');
-        btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300');
-
-        const filter = btn.getAttribute('data-filter');
-
-        roomCards.forEach(card => {
-          const capacidade = card.getAttribute('data-capacidade');
-          if (filter === 'todos' || filter === capacidade) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
     });
   }
 });

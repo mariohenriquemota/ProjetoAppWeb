@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas · Ninho D'Arara</title>
+  
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  
+  <!-- Estilos CSS Personalizados (Pontuação extra em CSS) -->
+  <link rel="stylesheet" href="css/estilos.css">
+  
+  <!-- Scripts -->
+  <script src="js/menu.js" defer></script>
+  <script src="js/reservas.js" defer></script>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+  <!-- ========================================================= -->
+  <!-- CABEÇALHO / HEADER                                        -->
+  <!-- ========================================================= -->
+  <header class="cabecalho-ninho text-white sticky top-0 z-50">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex flex-wrap items-center justify-between gap-y-3">
+      
+      <!-- Logótipo e Subtítulo -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="logo-badge inline-block px-4 py-1.5 rounded-xl text-base sm:text-lg border border-white/60">
+          NINHO D'ARARA
+        </a>
+        <span class="text-xs sm:text-sm text-emerald-100 font-medium">
+          Alojamento Local &amp; Cafetaria
+        </span>
+      </div>
+
+      <!-- Botão Menu Mobile -->
+      <button
+        type="button"
+        id="menu-botao"
+        aria-expanded="false"
+        aria-controls="menu-principal"
+        class="md:hidden inline-flex items-center gap-1.5 rounded-lg border border-emerald-400/40 px-3 py-1.5 text-xs uppercase font-semibold text-white hover:bg-emerald-800"
+      >
+        <span id="menu-icone" aria-hidden="true" class="text-base font-bold">☰</span>
+        <span>Menu</span>
+      </button>
+
+      <!-- Navegação Principal -->
+      <nav id="menu-principal" aria-label="Principal" class="hidden md:block w-full md:w-auto">
+        <ul class="flex flex-col md:flex-row md:items-center gap-1 sm:gap-2 text-sm pt-3 md:pt-0 border-t border-emerald-700/60 md:border-none">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="alojamento.html" class="nav-link">Alojamento</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="restaurante.html" class="nav-link">Restaurante</a></li>
+          <li class="hidden md:inline text-emerald-300/40">|</li>
+          <li><a href="reserva.html" class="nav-link ativo">Reservas</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- HERO BANNER SIMPLES                                       -->
+  <!-- ========================================================= -->
+  <section class="hero-ninho py-8 px-4 text-center">
+    <div class="mx-auto max-w-3xl">
+      <span class="text-xs font-bold tracking-widest text-[#204928] uppercase">
+        NATUREZA PANORÂMICA
+      </span>
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-[#204928] mt-1 mb-2">
+        Fazer Reserva
+      </h1>
+      <p class="text-sm text-slate-700">
+        Preencha o formulário para reservar o seu alojamento ou mesa na cafetaria.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- CONTEÚDO PRINCIPAL: FORMULÁRIO COM AVISOS DE ERRO         -->
+  <!-- ========================================================= -->
+  <main class="flex-1 mx-auto max-w-3xl w-full px-4 py-10">
+
+    <!-- Mensagem de Confirmação (mostrada após submissão válida) -->
+    <div id="mensagem-sucesso" role="status" class="hidden mb-6 rounded-2xl border border-emerald-300 bg-emerald-50 p-5 text-emerald-900 shadow-sm">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">✓</span>
+        <div>
+          <h3 class="font-bold text-base">Pedido de Reserva Registado com Sucesso!</h3>
+          <p class="text-xs text-emerald-800 mt-0.5">
+            Obrigado pelo seu pedido. Entraremos em contacto consigo com a confirmação da disponibilidade.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulário de Reserva -->
+    <form id="form-reserva" action="#" method="post" class="form-reserva flex flex-col gap-5">
+      
+      <div class="border-b border-slate-200 pb-3">
+        <h2 class="text-xl font-bold text-[#204928]">Dados da Reserva</h2>
+        <p class="text-xs text-slate-500">Os campos assinalados com <span class="campo-obrigatorio">*</span> são de preenchimento obrigatório.</p>
+      </div>
+
+      <!-- 1. Nome Próprio / Nome Completo -->
+      <div class="campo-grupo">
+        <label for="nome-completo" class="campo-label">
+          Nome Completo <span class="campo-obrigatorio">*</span>
+        </label>
+        <input
+          type="text"
+          id="nome-completo"
+          name="nome"
+          class="campo-input peer"
+          required
+          minlength="3"
+          placeholder="ex: Maria Silva"
+        >
+        <small class="msg-erro">Por favor, introduza o seu nome (mínimo de 3 caracteres).</small>
+      </div>
+
+      <!-- 2. Email e Telefone (Grid lado a lado) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <!-- Campo Email -->
+        <div class="campo-grupo">
+          <label for="email-contacto" class="campo-label">
+            Email <span class="campo-obrigatorio">*</span>
+          </label>
+          <input
+            type="email"
+            id="email-contacto"
+            name="email"
+            class="campo-input peer"
+            required
+            placeholder="ex: nome@exemplo.com"
+          >
+          <small class="msg-erro">Formato de email inválido (ex: nome@exemplo.com).</small>
+        </div>
+
+        <!-- Campo Telefone (validação com formato nacional) -->
+        <div class="campo-grupo">
+          <label for="telefone-contacto" class="campo-label">
+            Telefone <span class="campo-obrigatorio">*</span>
+          </label>
+          <input
+            type="tel"
+            id="telefone-contacto"
+            name="telefone"
+            class="campo-input peer"
+            required
+            pattern="(9[1236][0-9]{7}|2[0-9]{8})"
+            placeholder="ex: 912345678"
+          >
+          <small class="msg-erro">Telefone inválido (9 dígitos, ex: 912345678 ou 210000000).</small>
+        </div>
+
+      </div>
+
+      <!-- 3. Seleção do Quarto / Serviço -->
+      <div class="campo-grupo">
+        <label for="quarto-select" class="campo-label">
+          Alojamento ou Serviço <span class="campo-obrigatorio">*</span>
+        </label>
+        <select id="quarto-select" name="quarto" class="campo-input peer" required>
+          <option value="">-- Selecione uma opção --</option>
+          <option value="quarto-duplo">Quarto Duplo Rústico (85€ / noite)</option>
+          <option value="suite-jardim">Suite Jardim com Terraço (110€ / noite)</option>
+          <option value="quarto-familiar">Quarto Familiar Arara (135€ / noite)</option>
+          <option value="cafetaria">Mesa na Cafetaria / Restaurante (sem estadia)</option>
+        </select>
+        <small class="msg-erro">Selecione uma das opções disponíveis.</small>
+      </div>
+
+      <!-- 4. Datas Check-in e Check-out -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <div class="campo-grupo">
+          <label for="data-checkin" class="campo-label">
+            Data de Check-in <span class="campo-obrigatorio">*</span>
+          </label>
+          <input
+            type="date"
+            id="data-checkin"
+            name="checkin"
+            class="campo-input"
+            required
+          >
+        </div>
+
+        <div class="campo-grupo">
+          <label for="data-checkout" class="campo-label">
+            Data de Check-out <span class="campo-obrigatorio">*</span>
+          </label>
+          <input
+            type="date"
+            id="data-checkout"
+            name="checkout"
+            class="campo-input"
+            required
+          >
+          <small id="erro-datas" class="text-xs text-red-600 hidden font-semibold mt-1">
+            A data de check-out tem de ser posterior à data de check-in.
+          </small>
+        </div>
+
+      </div>
+
+      <!-- 5. Número de Hóspedes -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="campo-grupo">
+          <label for="num-adultos" class="campo-label">Adultos</label>
+          <select id="num-adultos" name="adultos" class="campo-input">
+            <option value="1">1 Adulto</option>
+            <option value="2" selected>2 Adultos</option>
+            <option value="3">3 Adultos</option>
+            <option value="4">4 Adultos</option>
+          </select>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="num-criancas" class="campo-label">Crianças</label>
+          <select id="num-criancas" name="criancas" class="campo-input">
+            <option value="0" selected>0 Crianças</option>
+            <option value="1">1 Criança</option>
+            <option value="2">2 Crianças</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Resumo do Preço Total Estimado (Calculado dinamicamente via JS) -->
+      <div id="resumo-calculo" class="mt-1"></div>
+
+      <!-- 6. Observações Opcionais -->
+      <div class="campo-grupo">
+        <label for="observacoes" class="campo-label">Observações (Opcional)</label>
+        <textarea
+          id="observacoes"
+          name="observacoes"
+          rows="3"
+          class="campo-input"
+          placeholder="Hora prevista de chegada ou pedidos especiais..."
+        ></textarea>
+      </div>
+
+      <!-- Botão de Envio -->
+      <div class="pt-2">
+        <button type="submit" class="btn-vermelho w-full text-base">
+          Confirmar Pedido de Reserva
+        </button>
+      </div>
+
+    </form>
+
+  </main>
+
+  <!-- ========================================================= -->
+  <!-- RODAPÉ / FOOTER                                           -->
+  <!-- ========================================================= -->
+  <footer class="rodape-ninho mt-auto">
+    <div class="mx-auto max-w-6xl px-4 py-8">
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-xs sm:text-sm">
+        
+        <!-- Coluna 1: Morada -->
+        <div>
+          <h4 class="rodape-titulo">MORADA</h4>
+          <p class="text-emerald-100/90 leading-relaxed">
+            Rua da Natureza, 123<br>
+            0000-000 Arara<br>
+            <span class="text-emerald-300 text-xs">Freguesia Verde</span>
+          </p>
+        </div>
+
+        <!-- Coluna 2: Contactos -->
+        <div>
+          <h4 class="rodape-titulo">CONTACTOS</h4>
+          <p class="text-emerald-100/90 leading-relaxed">
+            <span class="text-emerald-300 font-medium">Telefone:</span> +351 210 000 000<br>
+            <span class="text-emerald-300 font-medium">Email:</span> ola@ninhodarara.pt<br>
+            <span class="text-emerald-300 font-medium">Reservas:</span> reservas@ninhodarara.pt
+          </p>
+        </div>
+
+        <!-- Coluna 3: Horário -->
+        <div>
+          <h4 class="rodape-titulo">HORÁRIO</h4>
+          <p class="text-emerald-100/90 leading-relaxed">
+            <span class="text-emerald-300 font-medium">Cafetaria:</span> 08:00 — 20:00<br>
+            <span class="text-emerald-300 font-medium">Receção:</span> 08:00 — 22:00<br>
+            <span class="text-emerald-300 font-medium">Reservas:</span> Todos os dias
+          </p>
+        </div>
+
+        <!-- Coluna 4: Redes Sociais & Acesso Reservado -->
+        <div class="flex flex-col justify-between sm:items-end">
+          <div>
+            <h4 class="rodape-titulo sm:text-right">REDES SOCIAIS</h4>
+            <div class="flex gap-3 text-emerald-100 text-xs sm:justify-end">
+              <a href="#" class="hover:text-emerald-300">Instagram</a>
+              <span>&bull;</span>
+              <a href="#" class="hover:text-emerald-300">Facebook</a>
+              <span>&bull;</span>
+              <a href="#" class="hover:text-emerald-300">Tripadvisor</a>
+            </div>
+          </div>
+
+          <div class="mt-4 sm:mt-0">
+            <a href="entrar.html" class="rodape-link-reservado">
+              Acesso Reservado
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Rodapé -->
+      <div class="mt-8 pt-4 border-t border-emerald-800 flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-emerald-200/70">
+        <p>&copy; 2026/2027 Ninho D'Arara &bull; Aplicações Web &bull; ISCAC.</p>
+        <p>Desenvolvido com HTML5, CSS e Tailwind CSS.</p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
