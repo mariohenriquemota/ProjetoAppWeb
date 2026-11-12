@@ -308,32 +308,47 @@
   </footer>
 
   <!-- ========================================================= -->
-  <!-- MODAL LIGHTBOX COM SETAS DE NAVEGAÇÃO                     -->
+  <!-- MODAL LIGHTBOX (AMPLIAÇÃO DA CARTA COM SETAS)             -->
   <!-- ========================================================= -->
-  <div id="modal-lightbox" class="lightbox-modal relative" role="dialog" aria-modal="true" aria-label="Visualização da Carta">
+  <div id="modal-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Visualização da Carta">
     
-    <!-- Botão Fechar -->
-    <button type="button" id="fechar-lightbox" class="lightbox-fechar absolute top-4 right-4 z-40" aria-label="Fechar" title="Fechar">&times;</button>
-
-    <!-- Seta Esquerda (Anterior) -->
-    <button type="button" id="seta-anterior" class="lightbox-seta lightbox-seta-esquerda" aria-label="Foto anterior" title="Anterior">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
-      </svg>
-    </button>
-
-    <!-- Seta Direita (Seguinte) -->
-    <button type="button" id="seta-seguinte" class="lightbox-seta lightbox-seta-direita" aria-label="Foto seguinte" title="Seguinte">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
-      </svg>
-    </button>
-
-    <!-- Imagem da Carta -->
     <div class="lightbox-conteudo">
-      <div class="lightbox-container-img">
-        <img id="img-lightbox" src="imagens/FRENTE PT.jpg" alt="Carta Ninho D'Arara" class="lightbox-img" title="Clique para alternar o zoom">
+      
+      <!-- Barra Superior da Caixa com Botão Fechar -->
+      <div class="w-full flex justify-between items-center mb-2 px-1 text-white">
+        <span class="text-xs sm:text-sm font-semibold tracking-wide">Carta do Restaurante &bull; Ninho D'Arara</span>
+        <button type="button" id="fechar-lightbox" class="lightbox-fechar" aria-label="Fechar" title="Fechar">&times;</button>
       </div>
+
+      <!-- Área da Imagem com Setas de Navegação -->
+      <div class="lightbox-area-imagem">
+        
+        <!-- Seta Esquerda -->
+        <button type="button" id="seta-anterior" class="lightbox-seta lightbox-seta-esquerda" aria-label="Foto anterior" title="Foto anterior">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <!-- Container com a Imagem Ampliada -->
+        <div class="lightbox-container-img">
+          <img id="img-lightbox" src="imagens/FRENTE PT.jpg" alt="Carta Ninho D'Arara" class="lightbox-img" title="Clique para alternar o zoom">
+        </div>
+
+        <!-- Seta Direita (Passar para o Verso do Menu) -->
+        <button type="button" id="seta-seguinte" class="lightbox-seta lightbox-seta-direita" aria-label="Passar para o verso do menu" title="Passar para o verso do menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- Rodapé da Caixa do Lightbox -->
+      <div class="w-full flex justify-between items-center text-[11px] text-white/75 mt-2 px-1">
+        <span>Clique na imagem para aproximar ou afastar &bull; Prima <kbd class="px-1.5 py-0.5 bg-white/20 rounded font-mono">ESC</kbd> para fechar</span>
+      </div>
+
     </div>
 
   </div>
