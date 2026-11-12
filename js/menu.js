@@ -1,7 +1,4 @@
-// ==========================================
-// NINHO D'ARARA - Menu de Navegação Responsivo
-// Licenciatura em Informática de Gestão - Aplicações Web
-// ==========================================
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const botao = document.querySelector('#menu-botao');
@@ -32,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // A tecla Escape fecha o menu e devolve o foco ao botão
+  // esc
   document.addEventListener('keydown', (evento) => {
     if (evento.key === 'Escape' && botao.getAttribute('aria-expanded') === 'true') {
       fecharMenu();
@@ -40,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Fecha o menu ao redimensionar para ecrãs maiores (desktop >= 768px)
+  // Fecha o menu 
   window.matchMedia('(min-width: 768px)').addEventListener('change', (evento) => {
     if (evento.matches) {
       fecharMenu();
