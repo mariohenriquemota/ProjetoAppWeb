@@ -362,3 +362,28 @@ body {
   background-color: var(--cor-vermelho);
   color: #ffffff;
 }
+
+.modal-aba-btn {
+  padding: 0.35rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-aba-btn.ativo {
+  background-color: #10b981;
+  color: #ffffff;
+  border-color: #34d399;
+}
+
+.modal-aba-btn:not(.ativo) {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.modal-aba-btn:not(.ativo):hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
