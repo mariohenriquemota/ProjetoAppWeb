@@ -87,15 +87,30 @@
   <!-- ========================================================= -->
   <main class="flex-1 mx-auto max-w-4xl w-full px-4 py-10">
 
-    <!-- Card de Apresentação com Foto do Restaurante -->
+    <!-- Card de Apresentação com Foto do Menu -->
     <div class="card-destaque p-6 mb-8 flex flex-col md:flex-row gap-6 items-center">
-      <div class="w-full md:w-64 h-48 rounded-xl overflow-hidden flex-shrink-0">
-        <img src="imagens/FRENTE PT.jpg" alt="Restaurante Ninho D'Arara" class="w-full h-full object-cover">
+      <div class="w-full md:w-72 h-52 rounded-xl overflow-hidden flex-shrink-0 relative group cursor-pointer border border-emerald-900/10 shadow-sm" id="abrir-menu-foto" title="Clique para ver o menu em ponto grande">
+        <img src="imagens/FRENTE PT.jpg" alt="Carta e Menu do Restaurante Ninho D'Arara" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <!-- Overlay com dica para clicar -->
+        <div class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col items-center justify-center text-white text-xs font-semibold gap-1.5 p-3 text-center">
+          <svg class="w-8 h-8 text-white drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+          </svg>
+          <span class="bg-[#204928] px-2.5 py-1 rounded-md shadow">🔍 Clique para ampliar</span>
+        </div>
       </div>
-      <div>
-        <h2 class="text-xl font-bold text-[#204928]">O Nosso Conceito</h2>
+      <div class="flex-1">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <h2 class="text-xl font-bold text-[#204928]">Carta &amp; Conceito Gastronómico</h2>
+          <button type="button" id="btn-ver-grande" class="text-xs bg-emerald-100 hover:bg-emerald-200 text-[#204928] font-bold py-1.5 px-3 rounded-lg border border-emerald-300 transition inline-flex items-center gap-1.5 cursor-pointer">
+            🔍 Ver carta ampliada
+          </button>
+        </div>
         <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
           Pão fresco cozido em forno de lenha, compotas de frutos da época, queijos artesanais da serra e café de torra biológica. Aberto aos nossos hóspedes e a visitantes da região.
+        </p>
+        <p class="text-xs text-slate-500 mt-2.5 flex items-center gap-1.5">
+          <span>💡</span> <em>Pode clicar na fotografia da carta para a ver em ponto grande com toda a clareza e detalhe.</em>
         </p>
       </div>
     </div>
@@ -231,6 +246,80 @@
 
     </div>
   </footer>
+
+  <!-- ========================================================= -->
+  <!-- MODAL LIGHTBOX (AMPLIAÇÃO DA CARTA / MENU)                -->
+  <!-- ========================================================= -->
+  <div id="modal-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Carta do Restaurante Ampliada">
+    <div class="lightbox-conteudo">
+      <div class="w-full flex justify-between items-center mb-2 px-1 text-white">
+        <div class="flex items-center gap-2">
+          <span class="text-xs sm:text-sm font-semibold tracking-wide">Carta do Restaurante &bull; Ninho D'Arara</span>
+          <span class="text-[11px] text-white/70 hidden sm:inline">(Clique na imagem para aproximar/afastar)</span>
+        </div>
+        <button type="button" id="fechar-lightbox" class="lightbox-fechar" aria-label="Fechar" title="Fechar">&times;</button>
+      </div>
+      
+      <div class="lightbox-container-img">
+        <img id="img-lightbox" src="imagens/FRENTE PT.jpg" alt="Carta e Ementa Ninho D'Arara Ampliada" class="lightbox-img" title="Clique para alternar o zoom">
+      </div>
+      
+      <div class="w-full flex justify-between items-center text-[11px] text-white/75 mt-2 px-1">
+        <span>Prima <kbd class="px-1.5 py-0.5 bg-white/20 rounded font-mono">ESC</kbd> ou clique fora da imagem para fechar</span>
+        <a href="imagens/FRENTE PT.jpg" target="_blank" class="hover:underline text-emerald-300">Abrir original ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script para Abrir e Fechar o Modal da Carta -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fotoMenu = document.getElementById('abrir-menu-foto');
+      const btnVerGrande = document.getElementById('btn-ver-grande');
+      const modal = document.getElementById('modal-lightbox');
+      const btnFechar = document.getElementById('fechar-lightbox');
+      const imgModal = document.getElementById('img-lightbox');
+
+      function abrirModal() {
+        if (modal) {
+          modal.classList.add('ativo');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function fecharModal() {
+        if (modal) {
+          modal.classList.remove('ativo');
+          document.body.style.overflow = '';
+          if (imgModal) imgModal.classList.remove('zoom');
+        }
+      }
+
+      if (fotoMenu) fotoMenu.addEventListener('click', abrirModal);
+      if (btnVerGrande) btnVerGrande.addEventListener('click', abrirModal);
+      if (btnFechar) btnFechar.addEventListener('click', fecharModal);
+
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal || e.target.classList.contains('lightbox-conteudo')) {
+            fecharModal();
+          }
+        });
+      }
+
+      if (imgModal) {
+        imgModal.addEventListener('click', () => {
+          imgModal.classList.toggle('zoom');
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('ativo')) {
+          fecharModal();
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
