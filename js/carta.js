@@ -1,8 +1,4 @@
-// ==========================================
-// NINHO D'ARARA - Visualização da Carta (Lightbox)
-// Licenciatura em Informática de Gestão - Aplicações Web
-// ISCAC - Coimbra Business School
-// ==========================================
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const imagens = ['imagens/FRENTE PT.jpg', 'imagens/TRAS PT.jpg'];
@@ -45,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     atualizarImagem(indiceAtual + 1);
   }
 
-  // Clicar nos cartões de foto da ementa (Frente ou Verso)
+  // Clicar nos cartões de foto da ementa
   cardsFoto.forEach((card) => {
     card.addEventListener('click', () => {
       const idx = parseInt(card.getAttribute('data-index') || '0', 10);
@@ -53,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Navegação por setas (anterior / seguinte)
+  // Navegação por setas
   if (setaAnterior) {
     setaAnterior.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -68,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Fechar modal no botão (X)
+  // Fechar botão (X)
   if (btnFechar) {
     btnFechar.addEventListener('click', (e) => {
       e.stopPropagation();
