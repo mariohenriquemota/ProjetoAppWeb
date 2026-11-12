@@ -7,7 +7,7 @@ const PRECOS_QUARTOS = {
   'quarto-duplo': { nome: 'Quarto Duplo Rústico', preco: 85 },
   'suite-jardim': { nome: 'Suite Jardim com Terraço', preco: 110 },
   'quarto-familiar': { nome: 'Quarto Familiar Arara', preco: 135 },
-  'cafetaria': { nome: 'Mesa na Cafetaria', preco: 0 }
+  'bungalow-panoramico': { nome: 'Bungalow Panorâmico', preco: 150 }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -99,15 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (!infoQuarto) {
       resumoCalculo.innerHTML = '';
-      return;
-    }
-
-    if (infoQuarto.preco === 0) {
-      resumoCalculo.innerHTML = `
-        <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-3 text-xs text-emerald-900">
-          <strong>Reserva de Mesa na Cafetaria:</strong> Sem custo de alojamento. O valor das refeições é pago no local.
-        </div>
-      `;
       return;
     }
 

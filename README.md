@@ -40,16 +40,16 @@ O projeto foi construído respeitando as instruções das aulas práticas de Apl
 
 2. **Catálogo de Quartos (`alojamento.html`)**:
    - Título *"Os Nossos Quartos"* e subtítulo *"Escolha o seu alojamento"*.
-   - Três cartões horizontais com espaço para foto, comodidades e preços:
+   - Quatro cartões horizontais com espaço para foto, comodidades e preços:
      - **Quarto Duplo Rústico** (Desde 85€ / noite);
      - **Suite Jardim** (Desde 110€ / noite);
-     - **Quarto Familiar Arara** (Desde 135€ / noite).
+     - **Quarto Familiar Arara** (Desde 135€ / noite);
+     - **Bungalow Panorâmico** (Desde 150€ / noite).
    - Cada quarto tem um botão *"Reservar Quarto"* que abre a página de reserva com o respetivo quarto pré-selecionado.
 
 3. **Cafetaria & Restaurante (`restaurante.html`)**:
-   - Apresentação do conceito da cafetaria com produtos regionais.
+   - Apresentação do conceito da cafetaria com fotografia da fachada (*FRENTE PT*) e produtos regionais.
    - Ementa simples dividida em: Pequeno-Almoço & Cafetaria e Petiscos & Almoços Ligeiros.
-   - Botão para reserva de mesa na cafetaria.
 
 4. **Página de Reservas (`reserva.html`)**:
    - Formulário semântico com validação em tempo real e avisos de erro por campo:
