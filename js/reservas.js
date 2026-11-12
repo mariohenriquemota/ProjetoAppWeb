@@ -1,7 +1,3 @@
-// ==========================================
-// NINHO D'ARARA - Gestão de Reservas e Validação
-// Aplicações Web · Licenciatura em Informática de Gestão
-// ==========================================
 
 const PRECOS_QUARTOS = {
   'quarto-duplo': { nome: 'Quarto Duplo Rústico', preco: 85 },
@@ -23,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const formReserva = document.querySelector('#form-reserva');
   const mensagemSucesso = document.querySelector('#mensagem-sucesso');
 
-  // Inicializar datas por omissão
+  // Inicializar datas 
   const hoje = new Date();
   const hojeISO = hoje.toISOString().split('T')[0];
   
