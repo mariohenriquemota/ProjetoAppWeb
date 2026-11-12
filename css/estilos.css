@@ -270,17 +270,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.rodape-link-reservado {
-  color: #a7f3d0;
-  font-style: italic;
-  font-size: 0.75rem;
-  text-decoration: underline;
-  transition: var(--transicao-suave);
-}
 
-.rodape-link-reservado:hover {
-  color: #ffffff;
-}
 
 /* ======================================================== */
 /* 9. MODAL LIGHTBOX (AMPLIAR CARTA / MENU DO RESTAURANTE)  */
