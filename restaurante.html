@@ -9,11 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  
-  <!-- Estilos CSS Personalizados (Pontuação extra em CSS) -->
   <link rel="stylesheet" href="css/estilos.css">
   
   <!-- Scripts -->
@@ -22,9 +18,9 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
-  <!-- ========================================================= -->
-  <!-- CABEÇALHO / HEADER                                        -->
-  <!-- ========================================================= -->
+  
+  <!-- CABEÇALHO -->
+  
   <header class="cabecalho-ninho text-white sticky top-0 z-50">
     <div class="mx-auto max-w-6xl px-4 py-3 flex flex-wrap items-center justify-between gap-y-3">
       
@@ -66,9 +62,9 @@
     </div>
   </header>
 
-  <!-- ========================================================= -->
-  <!-- HERO BANNER DA CAFETARIA                                  -->
-  <!-- ========================================================= -->
+  
+  <!-- HERO BANNER DA CAFETARIA -->
+  
   <section class="hero-ninho py-8 px-4 text-center">
     <div class="mx-auto max-w-3xl">
       <span class="text-xs font-bold tracking-widest text-[#204928] uppercase">
@@ -83,9 +79,9 @@
     </div>
   </section>
 
-  <!-- ========================================================= -->
-  <!-- CONTEÚDO DA EMENTA SIMPLES                                -->
-  <!-- ========================================================= -->
+  
+  <!-- CONTEÚDO DA EMENTA -->
+  
   <main class="flex-1 mx-auto max-w-4xl w-full px-4 py-10">
 
     <!-- Card de Apresentação com as 2 Fotos do Menu (FRENTE PT e TRAS PT) -->
@@ -113,7 +109,7 @@
              data-index="1"
              title="Clique para ver em ponto grande">
           <img src="imagens/TRAS PT.jpg" alt="Carta Ninho D'Arara - Verso" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-          <!-- Overlay de hover com mensagem -->
+          
           <div class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col items-center justify-center text-white text-xs font-semibold gap-1.5 p-2 text-center">
             <svg class="w-7 h-7 text-white drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
@@ -136,12 +132,11 @@
       </div>
     </div>
 
-    <!-- ========================================================= -->
-    <!-- SECÇÃO SIMPLES: ESPECIALIDADES                            -->
-    <!-- ========================================================= -->
+    
+    <!-- SECÇÃO: ESPECIALIDADES -->
+    
     <section class="bg-white/70 p-6 sm:p-8 rounded-2xl border border-emerald-800/15 shadow-sm">
       
-      <!-- Título Principal -->
       <div class="border-b-2 border-emerald-800/20 pb-3 mb-8">
         <h2 class="text-2xl font-bold text-[#204928]">
           Especialidades
@@ -243,9 +238,9 @@
 
   </main>
 
-  <!-- ========================================================= -->
-  <!-- RODAPÉ / FOOTER                                           -->
-  <!-- ========================================================= -->
+  
+  <!-- RODAPÉ -->
+  
   <footer class="rodape-ninho mt-auto">
     <div class="mx-auto max-w-6xl px-4 py-8">
       
@@ -300,9 +295,9 @@
     </div>
   </footer>
 
-  <!-- ========================================================= -->
-  <!-- MODAL LIGHTBOX (AMPLIAÇÃO DA CARTA COM SETAS)             -->
-  <!-- ========================================================= -->
+  
+  <!-- AMPLIAÇÃO DA CARTA COM SETAS -->
+  
   <div id="modal-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Visualização da Carta">
     
     <div class="lightbox-conteudo">
