@@ -1,10 +1,5 @@
-/* ======================================================== */
-/* NINHO D'ARARA - FOLHA DE ESTILOS CSS                     */
-/* Aplicações Web · Licenciatura em Informática de Gestão   */
-/* ISCAC - Coimbra Business School                          */
-/* ======================================================== */
 
-/* 1. VARIÁVEIS CSS (Cores e Fontes do Projeto) */
+/* 1. VARIÁVEIS CSS */
 :root {
   --cor-verde: #2e693b;
   --cor-verde-escuro: #204928;
@@ -272,9 +267,7 @@ body {
 
 
 
-/* ======================================================== */
-/* 9. MODAL LIGHTBOX (AMPLIAR CARTA / MENU DO RESTAURANTE)  */
-/* ======================================================== */
+
 .lightbox-modal {
   display: none;
   position: fixed;
