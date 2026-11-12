@@ -363,27 +363,49 @@ body {
   color: #ffffff;
 }
 
-.modal-aba-btn {
-  padding: 0.35rem 0.85rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
+/* Setas de Navegação no Lightbox */
+.lightbox-seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+  z-index: 30;
+  user-select: none;
 }
 
-.modal-aba-btn.ativo {
-  background-color: #10b981;
-  color: #ffffff;
-  border-color: #34d399;
+.lightbox-seta:hover {
+  background-color: var(--cor-verde);
+  border-color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
 }
 
-.modal-aba-btn:not(.ativo) {
-  background-color: rgba(255, 255, 255, 0.18);
-  color: #ffffff;
+.lightbox-seta-esquerda {
+  left: 1.25rem;
 }
 
-.modal-aba-btn:not(.ativo):hover {
-  background-color: rgba(255, 255, 255, 0.3);
+.lightbox-seta-direita {
+  right: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .lightbox-seta {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .lightbox-seta-esquerda {
+    left: 0.5rem;
+  }
+  .lightbox-seta-direita {
+    right: 0.5rem;
+  }
 }
